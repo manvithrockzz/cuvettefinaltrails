@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    margin-bottom: 1rem;
+    width: 100vw;
+    height: 3rem;
+    background-color: #36416A;
+    color: #ffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text1 {
+    font-size: 2rem;
+    margin-left: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    align-items: center;
+}
+
+.HeaderBox {
+    height: 100%;
+    padding: 0 1rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logintext {
+    
+    padding: 0 .5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logintext:hover {
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.bodyUpper {
+    min-height: 70vh;
+    width: 100vw;
+
+    display: flex;
+
+}
+
+.upLeft {
+    width: 50%;
+    height: 100%;
+}
+
+.image1 {
+    height: 90%;
+    width: 90%;
+    object-fit: contain;
+    position: relative;
+    top:-18px;
+}
+
+.upRight {
+    width: 50%;
+    height: 95vh;
+    margin-bottom: 1rem;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text3 {
+    width: 80%;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.text4 {
+    width: 80%;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #6A6A6A;
+}
+
+.bodyLower {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.lowerLeft {
+    height: 100%;
+    width: 30%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.lowerRight {
+    height: 100%;
+    width: 70%;
+
+}
+
+.box1 {
+    width: 80%;
+    height: 20%;
+    background-color: #36416A;
+    color: white;
+    margin-top: 1rem;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+
+}
+
+.box2 {
+    margin-top: 1rem;
+    width: 80%;
+    height: 50%;
+    padding: 1rem;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 17.5051px rgba(0, 0, 0, 0.30);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+}
+
+.text5 {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 550;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.text6 {
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.box3 {
+    height: 3rem;
+    width: 90%;
+    margin: 1rem;
+    border: 1px solid #36416A59;
+    border-radius: .5rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.box31 {
+    width: 30%;
+    padding: 0 .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.box32 {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center;
+    position: relative;
+}
+
+.box321 {
+    padding: 0 1rem;
+}
+
+.box322 {
+    height: 7rem;
+    width: calc(100% - 5rem);
+    position: absolute;
+    left: 5rem;
+    top: 0px;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.innerBox1 {
+    height: 3rem;
+    padding-left: .5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.innerBox2 {
+    height: 2rem;
+    background-color: grey;
+    color:#ffff;
+    font-weight: bold;
+    padding-left: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.box4 {
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #36416A;
+    color:#ffff;
+
+}
+
+.text7 {
+    font-weight: 549;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.text8 {
+    color: #8B8B8B;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+
+
+.box5 {
+    width: 90%;
+    min-height: 80%;
+    padding: .5rem 0 2rem 0;
+    margin: 2rem 1rem;
+    border-radius: .5rem;
+}
+
+@media screen and (max-width:600px) {
+    .bodyUpper {
+        flex-direction: column;
+    }
+
+    .upLeft {
+        width: 100%;
+        padding-left: 25px;
+    }
+
+    .upRight {
+        width: 100%;
+        position: relative;
+        top: -40px;
+    }
+
+    .lowerRight {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box5 {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Courier New', Courier, monospace;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .box00 {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box2 {
+        width: 90vw;
+        margin-bottom: 0;
+        font-size: 15px;
+        align-items: center;
+    }
+
+    .text9 {
+        width: 90vw;
+        color: #8B8B8B;
+        font-weight: 600;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1rem;
+    }
+
+    .text3 .text4{
+        padding-left: 25px;
+    }
+
+    .box3 {
+        width: 90vw;
+        margin-top: 2rem;
+    }
+    
+    .text7{
+        font-size: 0.65em;
+        margin: 0;
+        padding: 0;
+    }
+
+    .text8{
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+    }
+    .box321{
+        padding: 0;
+    }
+    .box322{
+        left: 3rem;
+        margin: 0;
+        padding: 0;
+    }
+    .innerBox2, .innerBox1{
+        font-size: 1em;
+        width: 85px;
+    }
+    .box4{
+        padding: .2em .4em;
+        font-size: .8em;
+        width: 20%;
+        margin-left: 10%;
+    }
+}
