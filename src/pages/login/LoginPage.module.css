@@ -68,9 +68,11 @@
 }
 
 .box3{
-    font-size: 1rem;
+    cursor: pointer;
     color: #737373;
+    font-size: 1rem;
 }
+
 .text3{
     color: #36416A;
     text-decoration: underline;
@@ -86,7 +88,7 @@
     height: 2rem;
     border-radius: 2rem;
     color: white;
-
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;

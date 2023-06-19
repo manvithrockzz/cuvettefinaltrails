@@ -1,6 +1,6 @@
 
 export
-    const clientSideValidation = (userObj) => {
+    const ValidationForm = (userObj) => {
         const { name, email, mobile, password } = userObj;
         const error = {};
 

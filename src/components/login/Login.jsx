@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import styles from './Login.module.css'
-import { clientSideValidation } from '../../Client/Formvalidation';
+import { ValidationForm } from '../../Client/Formvalidation';
 import { LoginUser } from '../../Client/api';
 // eslint-disable-next-line no-unused-vars
 import { useNavigate } from 'react-router-dom';
@@ -37,7 +37,7 @@ export default
             mobile: '0000000000',
             password: userDetails.password
         }
-        const result = clientSideValidation(userToBeLoggedIn);
+        const result = ValidationForm(userToBeLoggedIn);
         if (result.success) {
             // do the API call
             const userLogIn = await LoginUser(userToBeLoggedIn);

@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import styles from './LoginPage.module.css'
-import { clientSideValidation } from '../../Client/Formvalidation';
+import { ValidationForm } from '../../Client/Formvalidation';
 import { UserContext } from '../../App';
 import { useNavigate } from 'react-router-dom';
 import {LoginUser } from '../../Client/api';
@@ -36,7 +36,7 @@ export default
             mobile: '0000000000',
             password: userDetails.password
         }
-        const result = clientSideValidation(userToBeLoggedIn);
+        const result = ValidationForm(userToBeLoggedIn);
         if (result.success) {
             // do the API call
             const userLogIn = await LoginUser(userToBeLoggedIn);

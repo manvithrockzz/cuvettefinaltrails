@@ -137,6 +137,7 @@
 .box2 {
     margin-top: 1rem;
     width: 80%;
+    cursor: pointer;
     height: 50%;
     padding: 1rem;
     background-color: white;
@@ -263,6 +264,7 @@
     width: 90%;
     min-height: 80%;
     padding: .5rem 0 2rem 0;
+    cursor: pointer;
     margin: 2rem 1rem;
     border-radius: .5rem;
 }

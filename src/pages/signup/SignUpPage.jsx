@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styles from './SignUpPage.module.css'
-import { clientSideValidation } from '../../Client/Formvalidation';
+import { ValidationForm} from '../../Client/Formvalidation';
 import { useNavigate } from 'react-router-dom';
 import { getsucessfullRegisteredUser } from '../../Client/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default
+
     function SignUpPage() {
 
     const [userDetails, setUserDetails] = useState({
@@ -17,12 +17,6 @@ export default
     })
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
-
-
-
-
-
-
 
 
     const handleChange = (e) => {
@@ -42,7 +36,7 @@ export default
             mobile: userDetails.mobile,
             password: userDetails.password
         }
-        const result = clientSideValidation(userToBeValidated);
+        const result = ValidationForm(userToBeValidated);
         if (result.success) {
             const userRegistration = await getsucessfullRegisteredUser(userToBeValidated);
 
@@ -104,3 +98,5 @@ export default
         </div>
     )
 }
+
+export default SignUpPage;

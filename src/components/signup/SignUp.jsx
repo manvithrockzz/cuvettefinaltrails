@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import styles from './SignUp.module.css'
-import { clientSideValidation } from '../../Client/Formvalidation';
+import { ValidationForm } from '../../Client/Formvalidation';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 import { getsucessfullRegisteredUser} from '../../Client/api';
@@ -39,7 +39,7 @@ import 'react-toastify/dist/ReactToastify.css';
             mobile: userDetails.mobile,
             password: userDetails.password
         }
-        const result = clientSideValidation(userToBeValidated);
+        const result = ValidationForm(userToBeValidated);
         if (result.success) {
             const userRegistration = await getsucessfullRegisteredUser(userToBeValidated);
 
