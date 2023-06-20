@@ -4,12 +4,11 @@ import styles from './PostAdd.module.css';
 import { UserContext } from '../../App';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import { addProduct, editPost } from '../../Client/api';
 import { useNavigate } from 'react-router-dom';
 
 export default function AddProduct(props) {
-    const [productDetails, setProductDetails] = useState({
+    const [postDetails, setPostDetails] = useState({
         name: '',
         category: '',
         logoUrl: '',
@@ -17,14 +16,14 @@ export default function AddProduct(props) {
         productDescription: ''
     });
 
-    const { setShowModal, productToEdit, setUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
+    const { setView, productToEdit, setUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (props.edit) {
             const categoryItems = productToEdit.tags.join(', ');
 
-            setProductDetails({
+            setPostDetails({
                 name: productToEdit.name,
                 category: categoryItems,
                 logoUrl: productToEdit.logo,
@@ -35,27 +34,27 @@ export default function AddProduct(props) {
     }, []);
 
     const handleChange = (e) => {
-        setProductDetails((prevDetails) => ({
+        setPostDetails((prevDetails) => ({
             ...prevDetails,
             [e.target.name]: e.target.value
         }));
     };
 
     const handleSubmit = async () => {
-        const { name, category, logoUrl, productDescription, productLink } = productDetails;
+        const { name, category, logoUrl, productDescription, productLink } = postDetails;
         if (!name || !category || !logoUrl || !productDescription || !productLink) {
             toast.error('Please ensure all fields are added', { autoclose: 3000 });
         } else {
             let result = '';
             if (props.edit) {
-                result = await editPost(productDetails, productToEdit.id);
+                result = await editPost(postDetails, productToEdit.id);
             } else {
-                result = await addProduct(productDetails);
+                result = await addProduct(postDetails);
             }
 
             if (result.success) {
                 toast.success(result.message, { autoclose: 3000 });
-                setShowModal(false);
+                setView(false);
                 navigate('/');
                 setUpdateAvailable(true);
                 setFilterUpdateAvailable(true);
@@ -65,8 +64,8 @@ export default function AddProduct(props) {
         }
     };
 
-    const handleCancel = () => {
-        setShowModal(false);
+    const diselect = () => {
+        setView(false);
     };
 
     return (
@@ -75,23 +74,23 @@ export default function AddProduct(props) {
                 {props.edit ? 'Edit your product' : 'Add your product'}
             </span>
             <input
-                value={productDetails.name}
+                value={postDetails.name}
                 type="text"
-                placeholder="Name of the company"
+                placeholder="Enter name of company"
                 name="name"
                 className={styles.entervalue}
                 onChange={handleChange}
             />
             <input
-                value={productDetails.category}
+                value={postDetails.category}
                 type="text"
-                placeholder="Category"
+                placeholder="Add Category"
                 name="category"
                 className={styles.entervalue}
                 onChange={handleChange}
             />
             <input
-                value={productDetails.logoUrl}
+                value={postDetails.logoUrl}
                 type="text"
                 placeholder="Add logo url"
                 name="logoUrl"
@@ -99,23 +98,23 @@ export default function AddProduct(props) {
                 onChange={handleChange}
             />
             <input
-                value={productDetails.productLink}
+                value={postDetails.productLink}
                 type="text"
-                placeholder="Link of product"
+                placeholder="Add product link"
                 name="productLink"
                 className={styles.entervalue}
                 onChange={handleChange}
             />
             <input
-                value={productDetails.productDescription}
+                value={postDetails.productDescription}
                 type="text"
-                placeholder="Description of product"
+                placeholder="Add description"
                 name="productDescription"
                 className={styles.entervalue}
                 onChange={handleChange}
             />
             <div className={styles.buttonContainer}>
-                <span className={styles.submitButton} onClick={handleCancel}>
+                <span className={styles.submitButton} onClick={diselect}>
                     Cancel
                 </span>
                 <span className={styles.submitButton} onClick={handleSubmit}>
@@ -125,3 +124,4 @@ export default function AddProduct(props) {
         </div>
     );
 }
+

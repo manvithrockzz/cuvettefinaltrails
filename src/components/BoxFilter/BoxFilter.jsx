@@ -1,17 +1,17 @@
 import { useContext } from 'react'
-import styles from './FilterChip.module.css'
+import styles from "./BoxFilter.module.css"
 import { UserContext } from '../../App'
 // eslint-disable-next-line no-unused-vars
 import { useNavigate } from 'react-router-dom';
 export default
     function FilterChip(props) {
 
-    const { setFilterSelected, setUpdateAvailable } = useContext(UserContext);
+    const {selectedFilter, setUpdateAvailable } = useContext(UserContext);
 
     const { name, isSelected } = props;
 
     const handleClick = () => {
-        setFilterSelected(name);
+        selectedFilter(name);
         setUpdateAvailable(true);
     }
 
@@ -22,3 +22,4 @@ export default
         </div>
     )
 }
+

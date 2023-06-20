@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import styles from './LoginPage.module.css'
+import styles from './SignInPage.module.css'
 import { ValidationForm } from '../../Client/Formvalidation';
 import { UserContext } from '../../App';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,6 @@ import {LoginUser } from '../../Client/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default
     function LoginPage() {
 
     const [userDetails, setUserDetails] = useState({
@@ -38,16 +37,15 @@ export default
         }
         const result = ValidationForm(userToBeLoggedIn);
         if (result.success) {
-            // do the API call
             const userLogIn = await LoginUser(userToBeLoggedIn);
 
             if(userLogIn.success){
-                toast.success(userLogIn.message, {autoClose: 3000});
+                toast.success(userLogIn.message, {autoClose: 2000});
                 setUserLoggedIn(true);
                 navigate('/');
             }
             else{
-                toast.error(userLogIn.message, {autoClose: 3000});
+                toast.error(userLogIn.message, {autoClose: 2000});
             }
             
         }
@@ -61,25 +59,30 @@ export default
     }
 
     return (
-        <div className={styles.main}>
-            <h1 className={styles.text1}>Feedback</h1>
-            <h3 className={styles.text2}>Add your products and give us your valuable feedback</h3>
-            <div className={styles.mainBox}>
-                <div className={styles.box1}>
-                    <img src="../../Images/IconE.png" alt="img-1" className={styles.image1} />
-                    <input  placeholder='Email' className={styles.input1} name='email' onChange={handleChange}></input>
+        <div className={styles.SignInDiv}>
+            <h1 className={styles.Heading}>Feedback</h1>
+            <h3 className={styles.SubHeading}>Add your products and give us your valuable feedback</h3>
+            <div className={styles.SigninContainer}>
+                <div className={styles.signinSubContainer}>
+                    <img src="../../Images/IconE.png" alt="email" className={styles.emailIcon} />
+                    <input  placeholder='Email' className={styles.emailInput} name='email' onChange={handleChange}></input>
                 </div>
-                {errors.email && <span className={styles.error}>{errors.email}</span>}
-                <div className={styles.box2}>
-                    <img src="../../Images/Lock.png" alt="img-2" className={styles.image2} />
-                    <input  type="password" placeholder='Password' className={styles.input2} name='password' onChange={handleChange} />
+                {errors.email && <span className={styles.MessageError}>{errors.email}</span>}
+                <div className={styles.mid_div}>
+                    <img src="../../Images/Lock.png" alt="password" className={styles.passwordIcon} />
+                    <input  type="password" placeholder='Password' className={styles.passwordInput} name='password' onChange={handleChange} />
                 </div>
-                {errors.password && <span className={styles.error}>{errors.password}</span>}
-                <span className={styles.box3}>Don’t have an account? <span className={styles.text3} onClick={handleSignUp}>Sign up?</span></span>
-                <div className={styles.box4}>
+                {errors.password && <span className={styles.MessageError}>{errors.password}</span>}
+                <span className={styles.SignInbox}>Don’t have an account? <span className={styles.SignupText} onClick={handleSignUp}>Sign up </span></span>
+                <div className={styles.btn_div}>
                     <span className={styles.button1} onClick={handleSubmit}>Login</span>
                 </div>
             </div>
         </div>
     )
 }
+
+
+export default LoginPage;
+
+

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/home/HomePage";
-import LoginPage from "./pages/login/LoginPage";
+import HomePage from "./pages/home/Landing";
+import LoginPage from "./pages/login/SigInpage";
 import SignUpPage from "./pages/signup/SignUpPage";
 import { createContext, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
@@ -10,8 +10,8 @@ function App() {
 
   const [userLoggedIn, setUserLoggedIn] = useState();
   const [modalToShow, setModalToShow] = useState('');
-  const [showModal, setShowModal] = useState(false);
-  const [filterSelected, setFilterSelected] = useState();
+  const [view, setView] = useState(false);
+  const [filterSelected, selectedFilter] = useState();
   const [sortBy, setSortBy] = useState();
   const [updateAvailable, setUpdateAvailable] = useState();
   const [productToEdit, setProductToEdit] = useState();
@@ -30,7 +30,7 @@ function App() {
     }
 
     isUserLoggedIn();
-    setFilterSelected('All');
+    selectedFilter('All');
     setSortBy('Select');
     setUpdateAvailable(false);
   }, [])
@@ -42,8 +42,8 @@ function App() {
       value={{
         userLoggedIn, setUserLoggedIn,
         modalToShow, setModalToShow,
-        showModal, setShowModal,
-        filterSelected, setFilterSelected,
+        view,setView,
+        filterSelected, selectedFilter,
         sortBy, setSortBy,
         updateAvailable, setUpdateAvailable,
         productToEdit, setProductToEdit,

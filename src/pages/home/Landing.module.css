@@ -332,7 +332,8 @@
     }
     
     .text7{
-        font-size: 0.65em;
+        font-size: 10.5px;
+        font-weight: bold;
         margin: 0;
         padding: 0;
     }
@@ -340,7 +341,7 @@
     .text8{
         margin: 0;
         padding: 0;
-        font-size: 1em;
+        font-size: 11px;
     }
     .box321{
         padding: 0;
@@ -351,12 +352,12 @@
         padding: 0;
     }
     .innerBox2, .innerBox1{
-        font-size: 1em;
+        font-size: 12px;
         width: 85px;
     }
     .box4{
         padding: .2em .4em;
-        font-size: .8em;
+        font-size: 12px;
         width: 20%;
         margin-left: 10%;
     }

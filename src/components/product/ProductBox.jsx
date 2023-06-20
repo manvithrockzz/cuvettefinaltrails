@@ -15,7 +15,7 @@ export default
     const [comment, setComment] = useState('');
     const [likeCount, setLikeCount] = useState();
     const [commentCount, setCommentCount] = useState();
-    const { userLoggedIn, setModalToShow, setShowModal, setProductToEdit } = useContext(UserContext);
+    const { userLoggedIn, setModalToShow, setView, setProductToEdit } = useContext(UserContext);
 
     useEffect(() => {
         const tempDisplayChips = props.tags.map((item) => {
@@ -78,7 +78,7 @@ export default
     const handleEdit = () => {
         if (userLoggedIn) {
             setModalToShow('AddProductsEdit');
-            setShowModal(true);
+            setView(true);
             setProductToEdit(props);
         }
 

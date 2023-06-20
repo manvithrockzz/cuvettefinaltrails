@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom"
-import FilterChip from '../../components/filterChip/FilterChip'
-import Modal from '../../components/modal/Modal'
+import FilterChip from '../../components/BoxFilter/BoxFilter'
+import Modal from '../../components/modal/View'
 import ProductBox from '../../components/product/ProductBox'
-import styles from './HomePage.module.css'
+import styles from './Landing.module.css'
 import { UserContext } from '../../App';
 // import userIcon from "./userIcon.png"
 import { toast } from 'react-toastify';
@@ -12,11 +12,9 @@ import { ApplyFilter, getAllProducts } from '../../Client/api';
 import useWindowResize from '../../hooks/useWindowResize';
 export default
     function HomePage() {
-
-
     const navigate = useNavigate();
 
-    const { userLoggedIn, setUserLoggedIn, modalToShow, setModalToShow, showModal, setShowModal, filterSelected, sortBy, setSortBy, updateAvailable, setUpdateAvailable,filterUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
+    const { userLoggedIn, setUserLoggedIn, modalToShow, setModalToShow, view, setView, filterSelected, sortBy, setSortBy, updateAvailable, setUpdateAvailable,filterUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
     const [productDisplay, setProductDisplay] = useState([]);
     const [tagDisplay, setTagDisplay] = useState([]);
     const [displaySortOptions, setDisplaySortOptions] = useState();
@@ -77,7 +75,6 @@ export default
                 if (item === filterSelected) {
                     isSelected = true;
                 }
-
                 return (
                     <FilterChip
                         name={item}
@@ -129,7 +126,7 @@ export default
         else {
             setModalToShow('LogIn');
         }
-        setShowModal(true);
+        setView(true);
     }
 
     const handleFilter = (filter) => {
@@ -235,7 +232,7 @@ export default
                     </div>
                 </div>
             </div>
-            {showModal && <Modal show={modalToShow} />}
+            {view && <Modal show={modalToShow} />}
 
         </>
     )

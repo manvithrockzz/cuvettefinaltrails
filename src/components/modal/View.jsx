@@ -1,7 +1,8 @@
 import AddProduct from '../addProduct/AddProduct'
 import Login from '../login/Login'
 import SignUp from '../signup/SignUp'
-import styles from './Modal.module.css'
+import styles from "./View.module.css"
+
 export default
     function Modal(props) {
     return (
@@ -21,3 +22,4 @@ export default
         </div>
     )
 }
+
