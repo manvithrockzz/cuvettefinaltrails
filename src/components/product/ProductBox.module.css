@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.main {
+.ProductBoxContainer{
     background-color: #36416A26;
     margin-top: 1rem;
     min-height: 8rem;
@@ -13,28 +13,28 @@
     display: flex;
 }
 
-.image1 {
+.HomeImage {
     height: 80%;
     width: 15%;
     object-fit: contain;
     margin-right: 1rem;
 }
 
-.box2 {
+.mainDiv {
     width: 75%;
     display: flex;
     font-family: 'Courier New', Courier, monospace;
     flex-direction: column;
 }
 
-.text1 {
+.HeadingOne {
     height: 3rem;
     font-size: 2rem;
     font-weight: 540;
     color: hsl(227, 33%, 31%);
 }
 
-.text2 {
+.HeadingTwo {
     height: 2rem;
     font-size: 1rem;
 }
@@ -76,7 +76,7 @@
     gap: .3rem;
 }
 
-.box21 {
+.productBoxDiv {
     height: 3rem;
     display: flex;
     align-items: center;
@@ -84,7 +84,8 @@
     flex-wrap: wrap;
 }
 
-.image3 {
+
+.commentIcon {
     height: 70%;
     object-fit: contain;
 }
@@ -156,20 +157,20 @@
 }
 
 @media screen and (max-width: 600px) {
-    .image1 {
+    .HomeImage {
         width: 10%;
     }
 
-    .main {
+    .ProductBoxContainer {
         width: 100%;
     }
 
-    .text1 {
+    .HeadingOne {
         font-size: 1.2rem;
         height: 1.5rem;
     }
 
-    .text2,
+    .HeadingTwo,
     .text4,
     .text3,
     .text5 {
@@ -181,11 +182,11 @@
         padding: .2rem .5rem;
     }
 
-    .box21 {
+    .productBoxDiv {
         gap: .3rem;
     }
 
-    .image3 {
+    .commentIcon {
         height: 40%;
     }
 
