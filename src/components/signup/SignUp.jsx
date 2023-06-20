@@ -8,10 +8,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
     function SignUp() {
 
-    const [userDetails, setUserDetails] = useState({
+    const [clientInfo, setClientInfo] = useState({
         name: '',
         email: '',
         mobile: '',
@@ -23,7 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
     const {setModalToShow} = useContext(UserContext);
 
     const handleChange = (e) => {
-        setUserDetails((prevDetails) => {
+        setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
                 [e.target.name]: e.target.value
@@ -34,21 +33,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
     const handleSubmit = async () => {
         const userToBeValidated = {
-            name: userDetails.name,
-            email: userDetails.email,
-            mobile: userDetails.mobile,
-            password: userDetails.password
+            name: clientInfo.name,
+            email: clientInfo.email,
+            mobile: clientInfo.mobile,
+            password: clientInfo.password
         }
         const result = ValidationForm(userToBeValidated);
         if (result.success) {
             const userRegistration = await getsucessfullRegisteredUser(userToBeValidated);
 
             if (userRegistration.success) {
-                toast.success(userRegistration.message, { autoClose: 3000 });
+                toast.success(userRegistration.message, { autoClose: 2000 });
                 setModalToShow('AddProducts');
             }
             else {
-                toast.error(userRegistration.message, {autoClose: 3000});
+                toast.error(userRegistration.message, {autoClose: 2000});
             }
         }
         else {
@@ -63,36 +62,36 @@ import 'react-toastify/dist/ReactToastify.css';
     return (
         
 
-            <div className={styles.mainBox}>
-                <span className={styles.text2}>Signup to continue</span>
-                <div className={styles.box1}>
-                    <img src="../../Images/IconU.png" alt="img-1" className={styles.image1} />
-                    <input placeholder='Name' className={styles.input1} name='name' onChange={handleChange} ></input>
+            <div className={styles.signupContainer}>
+                <span className={styles.signupMessage}>Sign-up to continue</span>
+                <div className={styles.mainDiv}>
+                    <img src="../../Images/IconU.png" alt="Enter your name" className={styles.signupImages} />
+                    <input placeholder='Name' className={styles.entervalueOne} name='name' onChange={handleChange} ></input>
                 </div>
-                {errors.name && <span className={styles.error}>{errors.name}</span>}
+                {errors.name && <span className={styles.redMessage}>{errors.name}</span>}
 
-                <div className={styles.box1}>
-                    <img src="../../Images/IconE.png" alt="img-1" className={styles.image1} />
-                    <input placeholder='Email' className={styles.input1} name='email' onChange={handleChange} ></input>
+                <div className={styles.mainDiv}>
+                    <img src="../../Images/IconE.png" alt="Enter you email-id" className={styles.signupImages} />
+                    <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={handleChange} ></input>
                 </div>
-                {errors.email && <span className={styles.error}>{errors.email}</span>}
+                {errors.email && <span className={styles.redMessage}>{errors.email}</span>}
 
-                <div className={styles.box1}>
-                    <img src="../../Images/Phone.png" alt="img-1" className={styles.image1} />
-                    <input type='Number' placeholder='Mobile' className={styles.input1} name='mobile' onChange={handleChange} ></input>
+                <div className={styles.mainDiv}>
+                    <img src="../../Images/Phone.png" alt="Enter your Mobile Number" className={styles.signupImages} />
+                    <input type='Number' placeholder='Mobile' className={styles.entervalueOne} name='mobile' onChange={handleChange} ></input>
                 </div>
-                {errors.mobile && <span className={styles.error}>{errors.mobile}</span>}
+                {errors.mobile && <span className={styles.redMessage}>{errors.mobile}</span>}
 
-                <div className={styles.box2}>
-                    <img src="../../Images/Lock.png" alt="img-2" className={styles.image2} />
-                    <input type="password" placeholder='Password' className={styles.input2} name='password' onChange={handleChange} />
+                <div className={styles.subDiv}>
+                    <img src="../../Images/Lock.png" alt="Enter your Password" className={styles.secondsignupImage} />
+                    <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={handleChange} />
                 </div>
-                {errors.password && <span className={styles.error}>{errors.password}</span>}
+                {errors.password && <span className={styles.redMessage}>{errors.password}</span>}
 
-                <span className={styles.box3}>Already have an account? <span className={styles.text3} onClick={handleLogin} >Login</span></span>
+                <span className={styles.buttomDiv}>Already have an account? <span className={styles.messageB} onClick={handleLogin} >Login</span></span>
 
-                <div className={styles.box4}>
-                    <span className={styles.button1} onClick={handleSubmit} >Signup</span>
+                <div className={styles.buttonDiv}>
+                    <span className={styles.signupButton} onClick={handleSubmit} >Signup</span>
                 </div>
             </div>
         

@@ -32,8 +32,8 @@
     width: calc(100% - 1rem);
     border: none;
     height: 2rem;
-    border-bottom: 1px solid #AAAAAA;
-    color: #737373;
+    border-bottom: 1px solid hsl(0, 0%, 67%);
+    color: hsl(0, 0%, 45%);
     font-size: 1rem;
     padding: 0 .5rem;
 }
@@ -45,7 +45,7 @@
     flex-direction: column;
     display: flex;
     justify-content: center;
-    background-color: #36416A;
+    background-color: hsl(227, 33%, 31%);
 }
 
 .emailInput:focus,
@@ -55,20 +55,20 @@
 
 .Heading,
 .SubHeading {
-    color: #ffff;
+    color: hsl(0, 0%, 100%);
     width: 35vw;
     margin-bottom: 15px;
 }
 
 .SignInbox {
     cursor: pointer;
-    color: #737373;
+    color: hsl(0, 0%, 45%);
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
 }
 
 .SigninContainer {
-    background-color:#ffff;
+    background-color:hsl(0, 0%, 100%);
     width: 550px;
     align-items: center;
     height: 250px;
@@ -79,7 +79,7 @@
 }
 
 .SignupText {
-    color: #36416A;
+    color: hsl(227, 33%, 31%);
     text-decoration: underline;
     margin-left: .4rem;
 }
@@ -92,7 +92,7 @@
     font-family: 'Courier New', Courier, monospace;
     height: 33px;
     border-radius: 30px;
-    color: white;
+    color: hsl(0, 0%, 100%);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -105,7 +105,7 @@
     height: 1rem;
     width: calc(90% - 1rem);
     margin-left: 6rem;
-    color: red;
+    color: hsl(0, 100%, 50%);
 }
 
 @media screen and (max-width: 600px) {

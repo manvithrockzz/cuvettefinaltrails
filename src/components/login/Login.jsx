@@ -12,7 +12,7 @@ import { UserContext } from '../../App';
 export default
     function Login() {
 
-    const [userDetails, setUserDetails] = useState({
+    const [clientInfo, setClientInfo] = useState({
         email: '',
         password: ''
     })
@@ -21,7 +21,7 @@ export default
 
 
     const handleChange = (e) => {
-        setUserDetails((prevDetails) => {
+        setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
                 [e.target.name]: e.target.value
@@ -33,9 +33,9 @@ export default
     const handleSubmit = async () => {
         const userToBeLoggedIn = {
             name: '0000000',
-            email: userDetails.email,
+            email: clientInfo.email,
             mobile: '0000000000',
-            password: userDetails.password
+            password: clientInfo.password
         }
         const result = ValidationForm(userToBeLoggedIn);
         if (result.success) {
@@ -43,12 +43,12 @@ export default
             const userLogIn = await LoginUser(userToBeLoggedIn);
 
             if (userLogIn.success) {
-                toast.success(userLogIn.message, { autoClose: 3000 });
+                toast.success(userLogIn.message, { autoClose: 2000 });
                 setUserLoggedIn(true);
                 setModalToShow('AddProducts');
             }
             else {
-                toast.error(userLogIn.message, { autoClose: 3000 });
+                toast.error(userLogIn.message, { autoClose: 2000 });
             }
 
         }
@@ -63,24 +63,27 @@ export default
 
     return (
        
-            <div className={styles.mainBox}>
-            <span className={styles.text2}>Log in to continue</span>
-            <div className={styles.box1}>
-                <img src="../../Images/IconE.png" alt="img-1" className={styles.image1} />
-                <input placeholder='Email' className={styles.input1} name='email' onChange={handleChange}></input>
+            <div className={styles.signinContainer}>
+            <span className={styles.signinMessage}>Log-in to continue</span>
+            <div className={styles.mainDiv}>
+                <img src="../../Images/IconE.png" alt="Enter your Email adress" className={styles.emailIcon} />
+                <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={handleChange}></input>
             </div>
             {errors.email && <span className={styles.error}>{errors.email}</span>}
-            <div className={styles.box2}>
-                <img src="../../Images/Lock.png" alt="img-2" className={styles.image2} />
-                <input type="password" placeholder='Password' className={styles.input2} name='password' onChange={handleChange} />
+            <div className={styles.subDiv}>
+                <img src="../../Images/Lock.png" alt="Enter your password" className={styles.passwordIcon} />
+                <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={handleChange} />
             </div>
             {errors.password && <span className={styles.error}>{errors.password}</span>}
-            <span className={styles.box3}>Don’t have an account? <span className={styles.text3} onClick={handleSignUp}>Sign up </span></span>
-            <div className={styles.box4}>
-                <span className={styles.button1} onClick={handleSubmit}>Login</span>
+            <span className={styles.bottomDiv}>Don’t have an account? <span className={styles.signupMessage} onClick={handleSignUp}>Sign up </span></span>
+            <div className={styles.buttonDiv}>
+                <span className={styles.loginButton} onClick={handleSubmit}>Login</span>
             </div>
         </div>
       
 
     )
 }
+
+
+

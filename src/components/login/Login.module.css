@@ -1,76 +1,82 @@
-
+/* 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-.text2{
+} */
+.signinMessage{
     width: 100%;
+    font-family: 'Courier New', Courier, monospace;
     height: 10%;
-    padding: 0 2.5rem;
-    font-size: 1.5rem;
+    padding: 0 2rem;
+    font-size: 30px;
     font-weight: 600;
 
 }
-.mainBox{
+.signinContainer{
     width: 100%;
     height: 100%;
-    background-color: white;
-    
+    background-color: hsl(0, 0%, 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.box1, .box2, .box3, .box4{
+
+.mainDiv{
+    margin-top: 10px;
+}
+.mainDiv, .subDiv, .bottomDiv, .buttonDiv{
     width: 90%;
     height: 3rem;
     padding: 1rem;
-    /* margin-bottom: .2rem; */
     display: flex;
     align-items: center;
 }
-.image1, .image2{
+.emailIcon, .passwordIcon{
     width: 1.5rem;
     height: 3rem;
     object-fit: contain;
 }
 
-.input1, .input2{
+.entervalueOne, .entervalueTwo{
     margin-left: 1rem;
     width: calc(100% - 1rem);
     border: none;
     height: 2rem;
-    border-bottom: 1px solid #AAAAAA;
-
+    border-bottom: 1px solid hsl(0, 0%, 67%);
     color: #737373;
     font-size: 1rem;
     padding: 0 .5rem;
 }
-.input1:focus, .input2:focus{
+.entervalueOne:focus, .entervalueTwo:focus{
     outline: none;
 }
 
-.box3{
+.bottomDiv{
     font-size: 1rem;
-    color: #737373;
+    font-family: 'Courier New', Courier, monospace;
+    color: hsl(0, 0%, 45%);
 }
-.text3{
-    color: #36416A;
+.signupMessage{
+    color: hsl(227, 33%, 31%);
+    font-family: 'Courier New', Courier, monospace;
     text-decoration: underline;
+    cursor: pointer;
     margin-left: .4rem;
 }
 
-.box4{
+.buttonDiv{
     flex-direction: row-reverse;
 }
-.button1{
-    background-color: #36416A;
+.loginButton{
+    background-color: hsl(227, 33%, 31%);
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
     width: 5rem;
     height: 2rem;
     border-radius: 2rem;
-    color: white;
-
+    color: hsl(0, 0%, 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,19 +85,30 @@
 .error{
     width: calc(90% - 1rem);
     margin-left: 6rem;
-    
-    color: red;
+    color: hsl(0, 100%, 50%);
 
 }
 
 @media screen and (max-width:600px) {
-    .mainBox{
+    .signinContainer{
         width: 80vw;
         
     }
-    .text2{
+    .signinMessage{
         font-size: 1.5em;
         padding: 0 1rem;
         margin-bottom: .5rem;
     }
+
+    .bottomDiv{
+        font-size: 13px;
+    }
+
+    .signupMessage{
+        font-size: 13px;
+    }
+    .loginButton{
+        font-size: 14px;
+    }
+    
 }

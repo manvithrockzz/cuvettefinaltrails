@@ -31,7 +31,7 @@
     height: 3rem;
     font-size: 2rem;
     font-weight: 540;
-    color: #36416A;
+    color: hsl(227, 33%, 31%);
 }
 
 .text2 {
@@ -51,7 +51,7 @@
 
 .box31 {
     height: 70%;
-    background-color: #C7CBD6;
+    background-color: hsl(224, 15%, 81%);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -90,19 +90,19 @@
 }
 
 .text4 {
-    color: #ABABAB;
+    color: hsl(0, 0%, 67%);
 }
 
 .chipItems {
     padding: .3rem 1rem;
-    background-color: #C0CEFF;
+    background-color: hsl(227, 100%, 88%);
     border-radius: 1rem;
 }
 
 .button1 {
-    background-color: #36416A;
+    background-color: hsl(227, 33%, 31%);
     padding: .4rem 1rem;
-    color: white;
+    color: hsl(0, 0%, 100%);
     border-radius: 1rem;
 }
 
@@ -134,7 +134,7 @@
 .image4 {
     height: 2.5rem;
     padding: .5rem;
-    background-color: white;
+    background-color: hsl(0, 0%, 100%);
     object-fit: contain;
     border-radius: 0 1.25rem 1.25rem 0;
 }
@@ -149,7 +149,7 @@
 
 .comments {
     padding: .5rem 1rem;
-    background-color: #C7CBD6;
+    background-color: hsl(224, 15%, 81%);
     margin: .25rem .5rem;
     border-radius: 1rem;
 

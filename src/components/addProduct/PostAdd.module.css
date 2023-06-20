@@ -5,7 +5,7 @@
 }
 
 .POSTADD {
-    background-color: #ffff;
+    background-color: hsl(0, 0%, 100%);
     height: 100%;
     width: 100%;
     display: flex;
@@ -29,7 +29,7 @@
     padding: .2rem 0;
     border: none;
     border-bottom: 1px solid;
-    color: #737373;
+    color: hsl(0, 0%, 45%);
 }
 
 .entervalue:focus {
@@ -45,8 +45,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #36416A;
-    color: white;
+    background-color: hsl(227, 33%, 31%);
+    color: hsl(0, 0%, 100%);
 }
 
 .buttonContainer{

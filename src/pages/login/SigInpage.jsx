@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
     function LoginPage() {
 
-    const [userDetails, setUserDetails] = useState({
+    const [clientInfo, setClientInfo] = useState({
         email: '',
         password: ''
     })
@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
     const handleChange = (e) => {
-        setUserDetails((prevDetails) => {
+        setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
                 [e.target.name]: e.target.value
@@ -31,9 +31,9 @@ import 'react-toastify/dist/ReactToastify.css';
     const handleSubmit = async() => {
         const userToBeLoggedIn = {
             name: '0000000',
-            email: userDetails.email,
+            email: clientInfo.email,
             mobile: '0000000000',
-            password: userDetails.password
+            password: clientInfo.password
         }
         const result = ValidationForm(userToBeLoggedIn);
         if (result.success) {

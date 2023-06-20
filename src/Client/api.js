@@ -153,9 +153,9 @@ const getAllProducts = async (query) => {
     }
 }
 
-const getsucessfullRegisteredUser = async (UserDetails) => {
+const getsucessfullRegisteredUser = async (ClientInfo) => {
     try {
-        const { name, email, mobile, password } = UserDetails;
+        const { name, email, mobile, password } = ClientInfo;
         const response = await api.post('/user/register', {
             name, mobile, email, password
         })
@@ -175,9 +175,9 @@ const getsucessfullRegisteredUser = async (UserDetails) => {
     }
 }
 
-const LoginUser = async (UserDetails) => {
+const LoginUser = async (ClientInfo) => {
 
-    const { email, password } = UserDetails;
+    const { email, password } = ClientInfo;
     const response = await api.post('/user/login', {
         email, password
     })

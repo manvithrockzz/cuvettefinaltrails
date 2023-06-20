@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
     function SignUpPage() {
 
-    const [userDetails, setUserDetails] = useState({
+    const [clientInfo, setClientInfo] = useState({
         name: '',
         email: '',
         mobile: '',
@@ -20,7 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
     const handleChange = (e) => {
-        setUserDetails((prevDetails) => {
+        setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
                 [e.target.name]: e.target.value
@@ -31,10 +31,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
     const handleSubmit = async () => {
         const userToBeValidated = {
-            name: userDetails.name,
-            email: userDetails.email,
-            mobile: userDetails.mobile,
-            password: userDetails.password
+            name: clientInfo.name,
+            email: clientInfo.email,
+            mobile: clientInfo.mobile,
+            password: clientInfo.password
         }
         const result = ValidationForm(userToBeValidated);
         if (result.success) {
