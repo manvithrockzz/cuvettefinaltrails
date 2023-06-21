@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
     const navigate = useNavigate();
 
 
-    const handleChange = (e) => {
+    const processInput = (e) => {
         setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
@@ -29,7 +29,7 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
 
-    const handleSubmit = async () => {
+    const attemptLogin = async () => {
         const userToBeValidated = {
             name: clientInfo.name,
             email: clientInfo.email,
@@ -67,32 +67,32 @@ import 'react-toastify/dist/ReactToastify.css';
 
                 <div className={styles.box1}>
                     <img src="../../Images/IconU.png" alt="img-1" className={styles.image1} />
-                    <input placeholder='Name' className={styles.input1} name='name' onChange={handleChange} ></input>
+                    <input placeholder='Name' className={styles.input1} name='name' onChange={processInput} ></input>
                 </div>
                 {errors.name && <span className={styles.error}>{errors.name}</span>}
 
                 <div className={styles.box1}>
                     <img src="../../Images/IconE.png" alt="img-1" className={styles.image1} />
-                    <input placeholder='Email' className={styles.input1} name='email' onChange={handleChange} ></input>
+                    <input placeholder='Email' className={styles.input1} name='email' onChange={processInput} ></input>
                 </div>
                 {errors.email && <span className={styles.error}>{errors.email}</span>}
 
                 <div className={styles.box1}>
                     <img src="../../Images/Phone.png" alt="img-1" className={styles.image1} />
-                    <input type='Number' placeholder='Mobile' className={styles.input1} name='mobile' onChange={handleChange} ></input>
+                    <input type='Number' placeholder='Mobile' className={styles.input1} name='mobile' onChange={processInput} ></input>
                 </div>
                 {errors.mobile && <span className={styles.error}>{errors.mobile}</span>}
 
                 <div className={styles.box2}>
                     <img src="../../Images/Lock.png" alt="img-2" className={styles.image2} />
-                    <input type="password" placeholder='Password' className={styles.input2} name='password' onChange={handleChange} />
+                    <input type="password" placeholder='Password' className={styles.input2} name='password' onChange={processInput} />
                 </div>
                 {errors.password && <span className={styles.error}>{errors.password}</span>}
 
                 <span className={styles.box3}>Already have an account? <span className={styles.text3} onClick={handleLogin} >Login</span></span>
 
                 <div className={styles.box4}>
-                    <span className={styles.button1} onClick={handleSubmit} >Signup</span>
+                    <span className={styles.button1} onClick={attemptLogin} >Signup</span>
                 </div>
             </div>
         </div>

@@ -11,10 +11,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ApplyFilter, getAllProducts } from '../../Client/api';
 import useResponsiveScreen from '../../hooks/useWindowResize';
 export default
-    function HomePage() {
+    function LandingPage() {
     const navigate = useNavigate();
 
-    const { activeUser, setActiveUser, activePopup, setActivePopup, isVisible, setIsVisible, activeSort, sortBy, setSortBy, updateAvailable, setUpdateAvailable,filterUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
+    const { activeUser, setActiveUser, activePopup, setActivePopup, isVisible, setIsVisible, activeSort, sortBy, setSortBy, modifyStatus, setModifyStatus,sortUpdateState, setSortUpdateState } = useContext(UserContext);
     const [visibleProducts, setVisibleProducts] = useState([]);
     const [visibleTags, setVisibleTags] = useState([]);
     const [optionsForDisplay, setOptionsForDisplay] = useState();
@@ -55,7 +55,7 @@ export default
                 )
             })
             setVisibleProducts(tempDisplay);
-            setUpdateAvailable(false);
+            setModifyStatus(false);
             setItemNumber(tempDisplay.length);
         }
         else {
@@ -84,7 +84,7 @@ export default
             })
 
             setVisibleTags(tempDisplay);
-            setFilterUpdateAvailable(false);
+            setSortUpdateState(false);
         }
         else {
             toast.error('Error in getting filters', { autoClose: 2000 });
@@ -96,17 +96,17 @@ export default
     }, [activeSort])
 
     useEffect(() => {
-        if (updateAvailable) {
+        if (modifyStatus) {
             setVisibleProducts('');
             getProductsAndDisplay();
         }
-    }, [updateAvailable])
+    }, [modifyStatus])
 
     useEffect(()=>{
-        if(filterUpdateAvailable){
+        if(sortUpdateState){
             getFiltersAndDisplay();
         }
-    }, [filterUpdateAvailable])
+    }, [sortUpdateState])
 
     const handleLoginLogout = () => {
         if (activeUser) {
@@ -141,7 +141,7 @@ export default
                 setChosenItem(filter);
 
             }
-            setUpdateAvailable(true);
+            setModifyStatus(true);
 
         }
         else if (filter === 'UpVotes') {
@@ -154,7 +154,7 @@ export default
                 setChosenItem(filter);
 
             }
-            setUpdateAvailable(true);
+            setModifyStatus(true);
 
         }
     }

@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 // eslint-disable-next-line no-unused-vars
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
-export default
     function ProductBox(props) {
 
     const [isChipsVisible, setisChipsVisible] = useState();
@@ -15,7 +14,7 @@ export default
     const [commentText, setCommentText] = useState('');
     const [numLikes, setNumLikes] = useState();
     const [totalComments, setTotalComments] = useState();
-    const { activeUser, setActivePopup, setIsVisible, setProductToEdit } = useContext(UserContext);
+    const { activeUser, setActivePopup, setIsVisible, setEditCandidate } = useContext(UserContext);
 
     useEffect(() => {
         const isChipsShown = props.tags.map((item) => {
@@ -79,7 +78,7 @@ export default
         if (activeUser) {
             setActivePopup('AddProductsEdit');
             setIsVisible(true);
-            setProductToEdit(props);
+            setEditCandidate(props);
         }
 
     }
@@ -125,6 +124,6 @@ export default
 }
 
 
-
+export default ProductBox;
 
 

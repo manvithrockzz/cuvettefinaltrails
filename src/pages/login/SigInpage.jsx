@@ -7,7 +7,7 @@ import {LoginUser } from '../../Client/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-    function LoginPage() {
+    function SignInPage() {
 
     const [clientInfo, setClientInfo] = useState({
         email: '',
@@ -18,7 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
     const navigate = useNavigate();
 
 
-    const handleChange = (e) => {
+    const processInput = (e) => {
         setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
@@ -28,7 +28,7 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
 
-    const handleSubmit = async() => {
+    const attemptLogin = async() => {
         const userToBeLoggedIn = {
             name: '0000000',
             email: clientInfo.email,
@@ -65,17 +65,17 @@ import 'react-toastify/dist/ReactToastify.css';
             <div className={styles.SigninContainer}>
                 <div className={styles.signinSubContainer}>
                     <img src="../../Images/IconE.png" alt="email" className={styles.emailIcon} />
-                    <input  placeholder='Email' className={styles.emailInput} name='email' onChange={handleChange}></input>
+                    <input  placeholder='Email' className={styles.emailInput} name='email' onChange={processInput}></input>
                 </div>
                 {errors.email && <span className={styles.MessageError}>{errors.email}</span>}
                 <div className={styles.mid_div}>
                     <img src="../../Images/Lock.png" alt="password" className={styles.passwordIcon} />
-                    <input  type="password" placeholder='Password' className={styles.passwordInput} name='password' onChange={handleChange} />
+                    <input  type="password" placeholder='Password' className={styles.passwordInput} name='password' onChange={processInput} />
                 </div>
                 {errors.password && <span className={styles.MessageError}>{errors.password}</span>}
                 <span className={styles.SignInbox}>Don’t have an account? <span className={styles.SignupText} onClick={handleSignUp}>Sign up </span></span>
                 <div className={styles.btn_div}>
-                    <span className={styles.button1} onClick={handleSubmit}>Login</span>
+                    <span className={styles.button1} onClick={attemptLogin}>Login</span>
                 </div>
             </div>
         </div>
@@ -83,6 +83,6 @@ import 'react-toastify/dist/ReactToastify.css';
 }
 
 
-export default LoginPage;
+export default SignInPage;
 
 

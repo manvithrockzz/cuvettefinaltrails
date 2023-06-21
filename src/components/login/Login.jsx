@@ -20,7 +20,7 @@ export default
     const { setActiveUser, setActivePopup } = useContext(UserContext);
 
 
-    const handleChange = (e) => {
+    const processInput = (e) => {
         setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
@@ -30,7 +30,7 @@ export default
     }
 
 
-    const handleSubmit = async () => {
+    const attemptLogin = async () => {
         const userToBeLoggedIn = {
             name: '0000000',
             email: clientInfo.email,
@@ -67,17 +67,17 @@ export default
             <span className={styles.signinMessage}>Log-in to continue</span>
             <div className={styles.mainDiv}>
                 <img src="../../Images/IconE.png" alt="Enter your Email adress" className={styles.emailIcon} />
-                <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={handleChange}></input>
+                <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={processInput}></input>
             </div>
             {errors.email && <span className={styles.error}>{errors.email}</span>}
             <div className={styles.subDiv}>
                 <img src="../../Images/Lock.png" alt="Enter your password" className={styles.passwordIcon} />
-                <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={handleChange} />
+                <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={processInput} />
             </div>
             {errors.password && <span className={styles.error}>{errors.password}</span>}
             <span className={styles.bottomDiv}>Don’t have an account? <span className={styles.signupMessage} onClick={handleSignUp}>Sign up </span></span>
             <div className={styles.buttonDiv}>
-                <span className={styles.loginButton} onClick={handleSubmit}>Login</span>
+                <span className={styles.loginButton} onClick={attemptLogin}>Login</span>
             </div>
         </div>
       

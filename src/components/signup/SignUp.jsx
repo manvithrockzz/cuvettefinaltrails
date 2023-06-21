@@ -21,7 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
     const navigate = useNavigate();
     const {setActivePopup} = useContext(UserContext);
 
-    const handleChange = (e) => {
+    const processInput = (e) => {
         setClientInfo((prevDetails) => {
             return {
                 ...prevDetails,
@@ -31,7 +31,7 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
 
-    const handleSubmit = async () => {
+    const attemptLogin = async () => {
         const userToBeValidated = {
             name: clientInfo.name,
             email: clientInfo.email,
@@ -66,32 +66,32 @@ import 'react-toastify/dist/ReactToastify.css';
                 <span className={styles.signupMessage}>Sign-up to continue</span>
                 <div className={styles.mainDiv}>
                     <img src="../../Images/IconU.png" alt="Enter your name" className={styles.signupImages} />
-                    <input placeholder='Name' className={styles.entervalueOne} name='name' onChange={handleChange} ></input>
+                    <input placeholder='Name' className={styles.entervalueOne} name='name' onChange={processInput} ></input>
                 </div>
                 {errors.name && <span className={styles.redMessage}>{errors.name}</span>}
 
                 <div className={styles.mainDiv}>
                     <img src="../../Images/IconE.png" alt="Enter you email-id" className={styles.signupImages} />
-                    <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={handleChange} ></input>
+                    <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={processInput} ></input>
                 </div>
                 {errors.email && <span className={styles.redMessage}>{errors.email}</span>}
 
                 <div className={styles.mainDiv}>
                     <img src="../../Images/Phone.png" alt="Enter your Mobile Number" className={styles.signupImages} />
-                    <input type='Number' placeholder='Mobile' className={styles.entervalueOne} name='mobile' onChange={handleChange} ></input>
+                    <input type='Number' placeholder='Mobile' className={styles.entervalueOne} name='mobile' onChange={processInput} ></input>
                 </div>
                 {errors.mobile && <span className={styles.redMessage}>{errors.mobile}</span>}
 
                 <div className={styles.subDiv}>
                     <img src="../../Images/Lock.png" alt="Enter your Password" className={styles.secondsignupImage} />
-                    <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={handleChange} />
+                    <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={processInput} />
                 </div>
                 {errors.password && <span className={styles.redMessage}>{errors.password}</span>}
 
                 <span className={styles.buttomDiv}>Already have an account? <span className={styles.messageB} onClick={handleLogin} >Login</span></span>
 
                 <div className={styles.buttonDiv}>
-                    <span className={styles.signupButton} onClick={handleSubmit} >Signup</span>
+                    <span className={styles.signupButton} onClick={attemptLogin} >Signup</span>
                 </div>
             </div>
         

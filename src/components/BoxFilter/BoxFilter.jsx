@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom';
 export default
     function FilterChip(props) {
 
-    const {setActiveSort, setUpdateAvailable } = useContext(UserContext);
+    const {setActiveSort, setModifyStatus } = useContext(UserContext);
 
     const { name, isSelected } = props;
 
     const handleClick = () => {
         setActiveSort(name);
-        setUpdateAvailable(true);
+        setModifyStatus(true);
     }
 
 

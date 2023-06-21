@@ -16,38 +16,38 @@ export default function AddProduct(props) {
         productDescription: ''
     });
 
-    const { setIsVisible, productToEdit, setUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
+    const { setIsVisible, editCandidate, setModifyStatus, setSortUpdateState } = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (props.edit) {
-            const categoryItems = productToEdit.tags.join(', ');
+            const categoryItems = editCandidate.tags.join(', ');
 
             setPostDetails({
-                name: productToEdit.name,
+                name: editCandidate.name,
                 category: categoryItems,
-                logoUrl: productToEdit.logo,
-                productLink: productToEdit.logo,
-                productDescription: productToEdit.description
+                logoUrl: editCandidate.logo,
+                productLink: editCandidate.logo,
+                productDescription: editCandidate.description
             });
         }
     }, []);
 
-    const handleChange = (e) => {
+    const processInput = (e) => {
         setPostDetails((prevDetails) => ({
             ...prevDetails,
             [e.target.name]: e.target.value
         }));
     };
 
-    const handleSubmit = async () => {
+    const attemptLogin = async () => {
         const { name, category, logoUrl, productDescription, productLink } = postDetails;
         if (!name || !category || !logoUrl || !productDescription || !productLink) {
             toast.error('Please ensure all fields are added', { autoclose: 3000 });
         } else {
             let result = '';
             if (props.edit) {
-                result = await editPost(postDetails, productToEdit.id);
+                result = await editPost(postDetails, editCandidate.id);
             } else {
                 result = await addProduct(postDetails);
             }
@@ -56,8 +56,8 @@ export default function AddProduct(props) {
                 toast.success(result.message, { autoclose: 3000 });
                 setIsVisible(false);
                 navigate('/');
-                setUpdateAvailable(true);
-                setFilterUpdateAvailable(true);
+                setModifyStatus(true);
+                setSortUpdateState(true);
             } else {
                 toast.error(result.message, { autoclose: 3000 });
             }
@@ -79,7 +79,7 @@ export default function AddProduct(props) {
                 placeholder="Enter name of company"
                 name="name"
                 className={styles.entervalue}
-                onChange={handleChange}
+                onChange={processInput}
             />
             <input
                 value={postDetails.category}
@@ -87,7 +87,7 @@ export default function AddProduct(props) {
                 placeholder="Add Category"
                 name="category"
                 className={styles.entervalue}
-                onChange={handleChange}
+                onChange={processInput}
             />
             <input
                 value={postDetails.logoUrl}
@@ -95,7 +95,7 @@ export default function AddProduct(props) {
                 placeholder="Add logo url"
                 name="logoUrl"
                 className={styles.entervalue}
-                onChange={handleChange}
+                onChange={processInput}
             />
             <input
                 value={postDetails.productLink}
@@ -103,7 +103,7 @@ export default function AddProduct(props) {
                 placeholder="Add product link"
                 name="productLink"
                 className={styles.entervalue}
-                onChange={handleChange}
+                onChange={processInput}
             />
             <input
                 value={postDetails.productDescription}
@@ -111,13 +111,13 @@ export default function AddProduct(props) {
                 placeholder="Add description"
                 name="productDescription"
                 className={styles.entervalue}
-                onChange={handleChange}
+                onChange={processInput}
             />
             <div className={styles.buttonContainer}>
                 <span className={styles.submitButton} onClick={diselect}>
                     Cancel
                 </span>
-                <span className={styles.submitButton} onClick={handleSubmit}>
+                <span className={styles.submitButton} onClick={attemptLogin}>
                     {props.edit ? 'Edit' : '+ Add'}
                 </span>
             </div>

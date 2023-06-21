@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/home/Landing";
-import LoginPage from "./pages/login/SigInpage";
+import LandingPage from "./pages/home/Landing";
+import SignInPage from "./pages/login/SigInpage";
 import SignUpPage from "./pages/signup/SignUpPage";
 import { createContext, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
@@ -13,9 +13,9 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSort, setActiveSort] = useState();
   const [sortBy, setSortBy] = useState();
-  const [updateAvailable, setUpdateAvailable] = useState();
-  const [productToEdit, setProductToEdit] = useState();
-  const [filterUpdateAvailable, setFilterUpdateAvailable] = useState();
+  const [modifyStatus, setModifyStatus] = useState();
+  const [editCandidate, setEditCandidate] = useState();
+  const [sortUpdateState, setSortUpdateState] = useState();
   useEffect(() => {
 
     const isSessionActive   = () => {
@@ -32,9 +32,8 @@ function App() {
     isSessionActive();
     setActiveSort('All');
     setSortBy('Select');
-    setUpdateAvailable(false);
+    setModifyStatus(false);
   }, [])
-
 
 
   return (
@@ -45,26 +44,27 @@ function App() {
         isVisible,setIsVisible,
         activeSort, setActiveSort,
         sortBy, setSortBy,
-        updateAvailable, setUpdateAvailable,
-        productToEdit, setProductToEdit,
-        filterUpdateAvailable, setFilterUpdateAvailable
+        modifyStatus, setModifyStatus,
+        editCandidate, setEditCandidate,
+        sortUpdateState, setSortUpdateState
       }}
     >
 
 
       <div>
         <BrowserRouter>
-          <Routes >
-            <Route path="/" element={<HomePage />} />
+        <Routes>
+        <Route path="/" element={<LandingPage />} />
             <Route path="/signUp" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
+            <Route path="/login" element={<SignInPage />} />
+            </Routes>
         </BrowserRouter>
         <ToastContainer position="top-center" autoClose={false} closeOnClick />
       </div>
     </UserContext.Provider>
   );
 }
+
 
 export default App;
 export { UserContext };

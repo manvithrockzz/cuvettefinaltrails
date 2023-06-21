@@ -1,4 +1,4 @@
-import AddProduct from '../addProduct/AddProduct'
+import AddProduct from '../PostAdd/PostAdd'
 import Login from '../login/Login'
 import SignUp from '../signup/SignUp'
 import styles from "./View.module.css"
