@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
         password: ''
     })
     const [errors, setErrors] = useState({});
-    const {setUserLoggedIn} = useContext(UserContext);
+    const {setActiveUser} = useContext(UserContext);
     const navigate = useNavigate();
 
 
@@ -41,7 +41,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
             if(userLogIn.success){
                 toast.success(userLogIn.message, {autoClose: 2000});
-                setUserLoggedIn(true);
+                setActiveUser(true);
                 navigate('/');
             }
             else{

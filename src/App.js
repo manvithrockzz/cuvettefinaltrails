@@ -8,29 +8,29 @@ import { ToastContainer } from "react-toastify";
 const UserContext = createContext();
 function App() {
 
-  const [userLoggedIn, setUserLoggedIn] = useState();
-  const [modalToShow, setModalToShow] = useState('');
-  const [view, setView] = useState(false);
-  const [filterSelected, selectedFilter] = useState();
+  const [activeUser, setActiveUser] = useState();
+  const [activePopup, setActivePopup] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeSort, setActiveSort] = useState();
   const [sortBy, setSortBy] = useState();
   const [updateAvailable, setUpdateAvailable] = useState();
   const [productToEdit, setProductToEdit] = useState();
   const [filterUpdateAvailable, setFilterUpdateAvailable] = useState();
   useEffect(() => {
 
-    const isUserLoggedIn = () => {
+    const isSessionActive   = () => {
       //check if user is logged in
       const currUser = JSON.parse(localStorage.getItem('feedbackUser'));
       if (currUser) {
-        setUserLoggedIn(true);
+        setActiveUser(true);
       }
       else {
-        setUserLoggedIn(false);
+        setActiveUser(false);
       }
     }
 
-    isUserLoggedIn();
-    selectedFilter('All');
+    isSessionActive();
+    setActiveSort('All');
     setSortBy('Select');
     setUpdateAvailable(false);
   }, [])
@@ -40,10 +40,10 @@ function App() {
   return (
     <UserContext.Provider
       value={{
-        userLoggedIn, setUserLoggedIn,
-        modalToShow, setModalToShow,
-        view,setView,
-        filterSelected, selectedFilter,
+        activeUser, setActiveUser,
+        activePopup, setActivePopup,
+        isVisible,setIsVisible,
+        activeSort, setActiveSort,
         sortBy, setSortBy,
         updateAvailable, setUpdateAvailable,
         productToEdit, setProductToEdit,

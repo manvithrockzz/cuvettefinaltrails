@@ -17,7 +17,7 @@ export default
         password: ''
     })
     const [errors, setErrors] = useState({});
-    const { setUserLoggedIn, setModalToShow } = useContext(UserContext);
+    const { setActiveUser, setActivePopup } = useContext(UserContext);
 
 
     const handleChange = (e) => {
@@ -44,8 +44,8 @@ export default
 
             if (userLogIn.success) {
                 toast.success(userLogIn.message, { autoClose: 2000 });
-                setUserLoggedIn(true);
-                setModalToShow('AddProducts');
+                setActiveUser(true);
+                setActivePopup('AddProducts');
             }
             else {
                 toast.error(userLogIn.message, { autoClose: 2000 });
@@ -58,7 +58,7 @@ export default
     }
 
     const handleSignUp = () => {
-        setModalToShow('SignUp');
+        setActivePopup('SignUp');
     }
 
     return (

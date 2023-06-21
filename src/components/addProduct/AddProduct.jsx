@@ -16,7 +16,7 @@ export default function AddProduct(props) {
         productDescription: ''
     });
 
-    const { setView, productToEdit, setUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
+    const { setIsVisible, productToEdit, setUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -54,7 +54,7 @@ export default function AddProduct(props) {
 
             if (result.success) {
                 toast.success(result.message, { autoclose: 3000 });
-                setView(false);
+                setIsVisible(false);
                 navigate('/');
                 setUpdateAvailable(true);
                 setFilterUpdateAvailable(true);
@@ -65,7 +65,7 @@ export default function AddProduct(props) {
     };
 
     const diselect = () => {
-        setView(false);
+        setIsVisible(false);
     };
 
     return (

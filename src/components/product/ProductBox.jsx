@@ -15,7 +15,7 @@ export default
     const [commentText, setCommentText] = useState('');
     const [numLikes, setNumLikes] = useState();
     const [totalComments, setTotalComments] = useState();
-    const { userLoggedIn, setModalToShow, setView, setProductToEdit } = useContext(UserContext);
+    const { activeUser, setActivePopup, setIsVisible, setProductToEdit } = useContext(UserContext);
 
     useEffect(() => {
         const isChipsShown = props.tags.map((item) => {
@@ -76,9 +76,9 @@ export default
     }
 
     const handleEdit = () => {
-        if (userLoggedIn) {
-            setModalToShow('AddProductsEdit');
-            setView(true);
+        if (activeUser) {
+            setActivePopup('AddProductsEdit');
+            setIsVisible(true);
             setProductToEdit(props);
         }
 
@@ -96,7 +96,7 @@ export default
                         {isChipsVisible}
                         <img src="../../Images/IconC2.png" alt="" className={styles.commentIcon} onClick={BoxtoggleComment} />
                         <span className={styles.commentext} onClick={BoxtoggleComment}>Comment</span>
-                        {userLoggedIn && <span className={`${styles.editbutton} `} onClick={handleEdit}>Edit</span>}
+                        {activeUser && <span className={`${styles.editbutton} `} onClick={handleEdit}>Edit</span>}
                     </div>
                 </div>
                 <div className={styles.Divthree}>

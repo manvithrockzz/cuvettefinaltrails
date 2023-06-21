@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
     const [errors, setErrors] = useState({});
     // eslint-disable-next-line no-unused-vars
     const navigate = useNavigate();
-    const {setModalToShow} = useContext(UserContext);
+    const {setActivePopup} = useContext(UserContext);
 
     const handleChange = (e) => {
         setClientInfo((prevDetails) => {
@@ -44,7 +44,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
             if (userRegistration.success) {
                 toast.success(userRegistration.message, { autoClose: 2000 });
-                setModalToShow('AddProducts');
+                setActivePopup('AddProducts');
             }
             else {
                 toast.error(userRegistration.message, {autoClose: 2000});
@@ -56,7 +56,7 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
     const handleLogin = () => {
-        setModalToShow('LogIn');
+        setActivePopup('LogIn');
     }
 
     return (

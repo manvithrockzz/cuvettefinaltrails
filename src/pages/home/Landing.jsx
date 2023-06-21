@@ -14,7 +14,7 @@ export default
     function HomePage() {
     const navigate = useNavigate();
 
-    const { userLoggedIn, setUserLoggedIn, modalToShow, setModalToShow, view, setView, filterSelected, sortBy, setSortBy, updateAvailable, setUpdateAvailable,filterUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
+    const { activeUser, setActiveUser, activePopup, setActivePopup, isVisible, setIsVisible, activeSort, sortBy, setSortBy, updateAvailable, setUpdateAvailable,filterUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
     const [visibleProducts, setVisibleProducts] = useState([]);
     const [visibleTags, setVisibleTags] = useState([]);
     const [optionsForDisplay, setOptionsForDisplay] = useState();
@@ -31,12 +31,12 @@ export default
             query += 'sort='
             query += sortBy;
         }
-        if (filterSelected && filterSelected !== 'All') {
+        if (activeSort && activeSort !== 'All') {
             if (query) {
                 query += '&';
             }
             query += 'product_category='
-            query += filterSelected;
+            query += activeSort;
         }
         const result = await getAllProducts(query);
         if (result.success) {
@@ -72,7 +72,7 @@ export default
             const tempDisplay = result.data.map((item) => {
                 let isSelected = false;
 
-                if (item === filterSelected) {
+                if (item === activeSort) {
                     isSelected = true;
                 }
                 return (
@@ -93,7 +93,7 @@ export default
     useEffect(() => {
 
         getFiltersAndDisplay();
-    }, [filterSelected])
+    }, [activeSort])
 
     useEffect(() => {
         if (updateAvailable) {
@@ -109,8 +109,8 @@ export default
     }, [filterUpdateAvailable])
 
     const handleLoginLogout = () => {
-        if (userLoggedIn) {
-            setUserLoggedIn(false);
+        if (activeUser) {
+            setActiveUser(false);
             toast.success('User Logged out!');
             localStorage.removeItem('feedbackUser');
         }
@@ -120,13 +120,13 @@ export default
     }
 
     const handleAddProducts = () => {
-        if (userLoggedIn) {
-            setModalToShow('AddProducts');
+        if (activeUser) {
+            setActivePopup('AddProducts');
         }
         else {
-            setModalToShow('LogIn');
+            setActivePopup('LogIn');
         }
-        setView(true);
+        setIsVisible(true);
     }
 
     const handleFilter = (filter) => {
@@ -159,7 +159,7 @@ export default
         }
     }
     const handleSignUp = ()=>{
-        if(!userLoggedIn){
+        if(!activeUser){
             navigate('signUp')
         }
     }
@@ -170,8 +170,8 @@ export default
             <div className={styles.header}>
                 <span className={styles.text1}>Feedback</span>
                 <div className={styles.HeaderBox}>
-                    <span className={styles.logintext} onClick={handleLoginLogout}>{userLoggedIn ? 'Logout' : 'Login'}</span>
-                    <span className={styles.logintext} onClick={handleSignUp}>{userLoggedIn ? `Hello  ` : 'Sign up'}{userLoggedIn &&  <h2> </h2>}</span>
+                    <span className={styles.logintext} onClick={handleLoginLogout}>{activeUser ? 'Logout' : 'Login'}</span>
+                    <span className={styles.logintext} onClick={handleSignUp}>{activeUser ? `Hello  ` : 'Sign up'}{activeUser &&  <h2> </h2>}</span>
                 </div>
             </div>
             <div className={styles.bodyUpper}>
@@ -232,7 +232,7 @@ export default
                     </div>
                 </div>
             </div>
-            {view && <Modal show={modalToShow} />}
+            {isVisible && <Modal show={activePopup} />}
 
         </>
     )
