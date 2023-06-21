@@ -1,21 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 .main {
-    height: 2rem;
-
-    padding: 0 1rem;
-    background-color: hsla(227, 33%, 31%, 0.149);
-    border-radius: 1rem;
-    font: 1rem;
-    margin: 1rem .5rem;
+    padding: 0 16px;
     display: flex;
+    border-radius: 16px;
+    height: 32px;
     justify-content: center;
     align-items: center;
-
+    background-color: hsla(227, 33%, 31%, 0.149);
+    margin: 16px 8px;
+    font-size: 16px;
+    font-weight: 900;
 }
 
 .selected {

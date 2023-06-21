@@ -1,67 +1,78 @@
 
 .viewContainer{
     position: fixed;
-    left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    /* left: 0; */
     background-color: hsla(0, 0%, 18%, 0.749);
     transform: scale(1.1);
+    height: 100%;
+
 }
 
 .subContainer{
-    height: 50vh;
-    width: 50vw;
+    width: 49.5vw;
     background-color: hsl(0, 0%, 100%);
     border-radius: 6px;
     position: absolute;
+    font-size: 16px;
+    /* flex-direction: row; */
+    height: 49.5vh;
     top: calc(50% - 25vh);
     left: calc(50% - 25vw);
-    box-shadow: #00000012 1000px 1000px,
-        #00000012 -1000px -1000px;
-
+    box-shadow: hsla(0, 0%, 0%, 0.071) 1000px 1000px,
+        hsla(0, 0%, 0%, 0.071) -1000px -1000px;
     display: flex;
-    flex-direction: row;
-    font-size: 1em;
 }
+
 .divLside{
-    width: 60%;
-    height: 100%;
+    width: 61%;
     background-color: hsl(28, 100%, 86%);
+    /* height: 99%; */
+
 }
 
 .divRside{
-    width: 40%;
     height: 100%;
+    display: flex;
     background-color: hsl(227, 33%, 31%);
     color: hsl(0, 0%, 100%);
-    display: flex;
+    width: 39%;
     flex-direction: column;
-    padding: 1rem;
+    padding: 16px;
 }
+
+
 .Heading{
     font-size: 35px;
+    margin-top: 12%;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
-    margin-top: 20%;
 }
+
 .subHeading{
-    width: 60%;
+    width: 57%;
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
+    margin-top: 11%;
     font-weight: bold;
-    margin-top: 10%;
 }
 
 @media screen and (max-width:600px) {
     .divLside{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 900;
+        border-radius: 32px;
         width: 100%;
     }
+    .subContainer{
+        left: 10%;
+        border-radius: 32px;
+
+    }
+    
     .divRside{
         display: none;
     }
-    .subContainer{
-        top: 20%;
-        left: 10%;
-    }
+    
 }

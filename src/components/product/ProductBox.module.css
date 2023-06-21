@@ -5,89 +5,91 @@
 }
 
 .ProductBoxContainer{
-    background-color: #36416A26;
-    margin-top: 1rem;
-    min-height: 8rem;
-    padding: .5rem;
-    border-radius: .5rem .5rem 0 0;
+    background-color: hsla(227, 33%, 31%, 0.149);
+    margin-top: 18px;
+    border-radius: .4rem .5rem 8px 8px;
     display: flex;
+    min-height: 128px;
+    padding:9px;
+
 }
 
 .HomeImage {
     height: 80%;
     width: 15%;
     object-fit: contain;
-    margin-right: 16px;
+    margin-right: 19px;
 }
 
 .mainDiv {
-    width: 75%;
-    display: flex;
-    font-family: 'Courier New', Courier, monospace;
     flex-direction: column;
+    display: flex;
+    width: 74.3%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .HeadingOne {
-    height: 3rem;
-    font-size: 2rem;
-    font-weight: 800;
+    height: 48.6px;
+    font-size: 32px;
+    font-weight: 900;
     color: hsl(227, 33%, 31%);
 }
 
 .HeadingTwo {
-    height: 2rem;
-    font-weight: 600;
+    height: 32px;
+    font-weight: 700;
     font-size: 16px;
 }
 
 .Divthree {
     margin-top: 17px;
-    height: 90%;
-    width: 3rem;
     display: flex;
     align-items: center;
+    width: 49px;
     justify-content: center;
+    height: 90%;
     flex-direction: column;
 }
 
 .Divthree_One {
     height: 70%;
+    align-items: center;
     background-color: hsl(224, 15%, 81%);
-    border-radius: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    border-radius: 16px;
 }
 
 .UpvoteIcon {
-    width: 60%;
     object-fit: contain;
+    width: 61%;
+
 }
 
 .text3 {
-    font-size: 1.2rem;
-    padding: .5em;
+    font-size: 20px;
+    padding: 8px;
 }
 
 .Divthreetwo {
-    margin-top: 1rem;
-    height: 20%;
+    margin-top: 20px;
+    height: 19%;
     display: flex;
     align-items: center;
-    gap: .3rem;
+    gap: 5px;
 }
 
-.productBoxDiv {
-    height: 3rem;
-    display: flex;
+.productBoxDiv {    
     align-items: center;
-    gap: 1rem;
     flex-wrap: wrap;
+    height: 49px;
+    display: flex;
+    gap: 16px;
 }
 
 
 .commentIcon {
-    height: 70%;
+    height: 69%;
     object-fit: contain;
 }
 
@@ -97,10 +99,10 @@
 }
 
 .chipItems {
-    padding: .3rem 1rem;
+    padding: 4.8px 16px;
     background-color: hsl(227, 100%, 88%);
     font-weight: 900;
-    border-radius: 1rem;
+    border-radius: 15px;
 }
 
 .editbutton {
@@ -112,26 +114,26 @@
 }
 
 .main2 {
-    height: 12rem;
+    height: 192px;
     background-color: #36416A26;
 }
 
 .top {
-    height: 4rem;
-
-    display: flex;
     justify-content: center;
+    display: flex;
+    height:66px;
     align-items: center;
 }
 
 .commentBox {
-    height: 2.5rem;
-    width: 85%;
+    width: 90%;
+    font-size: 19.2px;
+    padding: 8px 16px;
     border: none;
-    border-radius: 1.25rem 0 0 1.25rem;
-    font-size: 1.2rem;
-    padding: .5rem 1rem;
+    border-radius: 20px 0 0 20px;
+    height: 40px;    
 }
+
 .commentBox:focus{
     outline: none;
 }

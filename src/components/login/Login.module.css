@@ -1,26 +1,21 @@
-/* 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
+
 .signinMessage{
     width: 100%;
     font-family: 'Courier New', Courier, monospace;
     height: 10%;
-    padding: 0 2rem;
+    padding: 0 32px;
     font-size: 30px;
-    font-weight: 600;
-
+    font-weight: 900;
 }
+
 .signinContainer{
-    width: 100%;
-    height: 100%;
-    background-color: hsl(0, 0%, 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    background-color: hsl(0, 0%, 100%);
+    flex-direction: column;
 }
 
 .mainDiv{
@@ -28,80 +23,90 @@
 }
 .mainDiv, .subDiv, .bottomDiv, .buttonDiv{
     width: 90%;
-    height: 3rem;
-    padding: 1rem;
-    display: flex;
     align-items: center;
+    height: 49px;
+    padding: 16.5px;
+    display: flex;
 }
+
 .emailIcon, .passwordIcon{
-    width: 1.5rem;
-    height: 3rem;
+    width:25px;
+    height: 49px;
     object-fit: contain;
 }
 
 .entervalueOne, .entervalueTwo{
-    margin-left: 1rem;
-    width: calc(100% - 1rem);
     border: none;
-    height: 2rem;
+    font-size: 16.5px;
+    margin-left: 16px;
+    padding: 0 7.5px;
+    height: 33px;
     border-bottom: 1px solid hsl(0, 0%, 67%);
-    color: #737373;
-    font-size: 1rem;
-    padding: 0 .5rem;
+    color: hsl(0, 0%, 45%);
+    width: calc(100% - 1rem);
 }
+
+
+
+.bottomDiv{
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    color: hsl(0, 0%, 45%);
+    font-weight: 900;
+}
+
 .entervalueOne:focus, .entervalueTwo:focus{
     outline: none;
 }
 
-.bottomDiv{
-    font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-    color: hsl(0, 0%, 45%);
-}
 .signupMessage{
     color: hsl(227, 33%, 31%);
     font-family: 'Courier New', Courier, monospace;
     text-decoration: underline;
     cursor: pointer;
-    margin-left: .4rem;
+    margin-left: 7px;
+    font-weight: 900;
 }
+
 
 .buttonDiv{
     flex-direction: row-reverse;
 }
+
 .loginButton{
+    border-radius: 32px;
     background-color: hsl(227, 33%, 31%);
     font-family: 'Courier New', Courier, monospace;
-    cursor: pointer;
-    width: 5rem;
-    height: 2rem;
-    border-radius: 2rem;
-    color: hsl(0, 0%, 100%);
+    font-weight: 900;
+    height: 32px;
     display: flex;
+    width: 81px;
     justify-content: center;
+    cursor: pointer;
     align-items: center;
+    color: hsl(0, 0%, 100%);
 }
 
 .error{
-    width: calc(90% - 1rem);
-    margin-left: 6rem;
     color: hsl(0, 100%, 50%);
+    width: calc(90% - 1rem);
+    margin-left: 95px;
 
 }
 
 @media screen and (max-width:600px) {
+    
+    .bottomDiv{
+        font-size: 13px;
+    }
     .signinContainer{
         width: 80vw;
         
     }
     .signinMessage{
-        font-size: 1.5em;
-        padding: 0 1rem;
-        margin-bottom: .5rem;
-    }
-
-    .bottomDiv{
-        font-size: 13px;
+        font-size: 24px;
+        padding: 0 16px;
+        margin-bottom: 8px;
     }
 
     .signupMessage{

@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import styles from "./BoxFilter.module.css"
+import Component from "./BoxFilter.module.css"
 import { UserContext } from '../../App'
 // eslint-disable-next-line no-unused-vars
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ export default
 
 
     return (
-        <div className={`${styles.main} ${isSelected && styles.selected}`} onClick={handleClick}>
+        <div className={`${Component.main} ${isSelected && Component.selected}`} onClick={handleClick}>
             {name}
         </div>
     )
