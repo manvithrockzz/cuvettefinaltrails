@@ -8,8 +8,8 @@
     margin-bottom: 1rem;
     width: 100vw;
     height: 3rem;
-    background-color: #36416A;
-    color: #ffff;
+    background-color: hsl(227, 33%, 31%);
+    color: hsl(0, 0%, 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,7 +44,7 @@
 }
 
 .logintext:hover {
-    border: 2px solid white;
+    border: 2px solid hsl(0, 0%, 100%);
     border-radius: 5px;
     font-size: 1.2rem;
     cursor: pointer;
@@ -92,7 +92,7 @@
     width: 80%;
     margin-top: 2rem;
     font-size: 1.4rem;
-    color: #6A6A6A;
+    color: hsl(0, 0%, 42%);
 }
 
 .bodyLower {
@@ -122,15 +122,14 @@
 .box1 {
     width: 80%;
     height: 20%;
-    background-color: #36416A;
-    color: white;
-    margin-top: 1rem;
+    background-color: hsl(227, 33%, 31%);
+    color: hsl(0, 0%, 100%);
+    margin-top: 16.5px;
     border-radius: 1rem;
-
     display: flex;
     flex-direction: column-reverse;
-    padding: 1rem;
-    padding-bottom: 1.5rem;
+    padding:16px;
+    padding-bottom: 55px;
 
 }
 
@@ -140,10 +139,11 @@
     cursor: pointer;
     height: 50%;
     padding: 1rem;
-    background-color: white;
+    background-color: hsl(0, 0%, 100%);
     font-family: 'Courier New', Courier, monospace;
-    border-radius: 1rem;
-    box-shadow: 0px 0px 17.5051px rgba(0, 0, 0, 0.30);
+    border-radius:16.5px;
+    font-weight: 900;
+    box-shadow: 0px 0px 17.5051px hsla(0, 0%, 0%, 0.3);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -169,7 +169,7 @@
     height: 3rem;
     width: 90%;
     margin: 1rem;
-    border: 1px solid #36416A59;
+    border: 1px solid hsla(227, 33%, 31%, 0.349);
     border-radius: .5rem;
 
     display: flex;
@@ -216,6 +216,7 @@
 .innerBox1 {
     height: 3rem;
     padding-left: .5rem;
+    font-weight: 900;
     font-weight: 600;
     font-size: 1.1rem;
     display: flex;
@@ -224,8 +225,8 @@
 
 .innerBox2 {
     height: 2rem;
-    background-color: grey;
-    color:#ffff;
+    background-color: hsl(0, 0%, 50%);
+    color:hsl(0, 0%, 100%);
     font-weight: bold;
     padding-left: .5rem;
     display: flex;
@@ -238,20 +239,21 @@
     cursor: pointer;
     border-radius: .5rem;
     font-family: 'Courier New', Courier, monospace;
-    background-color: #36416A;
-    color:#ffff;
+    background-color: hsl(227, 33%, 31%);
+    font-weight: 900;
+    color:hsl(0, 0%, 100%);
 
 }
 
 .text7 {
-    font-weight: 549;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
-    margin-right: 1rem;
+    font-weight: 900;
+    margin-right:16px;
 }
 
 .text8 {
-    color: #8B8B8B;
+    color: hsl(0, 0%, 55%);
     font-size: 1rem;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -311,6 +313,7 @@
         width: 90vw;
         margin-bottom: 0;
         font-size: 15px;
+        font-weight: 900;
         align-items: center;
     }
 
@@ -333,7 +336,7 @@
     
     .text7{
         font-size: 10.5px;
-        font-weight: bold;
+        font-weight: 900;
         margin: 0;
         padding: 0;
     }
@@ -354,9 +357,11 @@
     .innerBox2, .innerBox1{
         font-size: 12px;
         width: 85px;
+        font-weight: 900;
     }
     .box4{
         padding: .2em .4em;
+        font-weight: 900;
         font-size: 12px;
         width: 20%;
         margin-left: 10%;

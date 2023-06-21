@@ -17,7 +17,7 @@
     height: 80%;
     width: 15%;
     object-fit: contain;
-    margin-right: 1rem;
+    margin-right: 16px;
 }
 
 .mainDiv {
@@ -30,26 +30,27 @@
 .HeadingOne {
     height: 3rem;
     font-size: 2rem;
-    font-weight: 540;
+    font-weight: 800;
     color: hsl(227, 33%, 31%);
 }
 
 .HeadingTwo {
     height: 2rem;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 16px;
 }
 
-.box3 {
+.Divthree {
+    margin-top: 17px;
     height: 90%;
     width: 3rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.box31 {
+.Divthree_One {
     height: 70%;
     background-color: hsl(224, 15%, 81%);
     border-radius: 1rem;
@@ -58,7 +59,7 @@
     align-items: center;
 }
 
-.image2 {
+.UpvoteIcon {
     width: 60%;
     object-fit: contain;
 }
@@ -68,7 +69,7 @@
     padding: .5em;
 }
 
-.box32 {
+.Divthreetwo {
     margin-top: 1rem;
     height: 20%;
     display: flex;
@@ -90,21 +91,24 @@
     object-fit: contain;
 }
 
-.text4 {
+.commentext {
     color: hsl(0, 0%, 67%);
+    font-weight: 900;
 }
 
 .chipItems {
     padding: .3rem 1rem;
     background-color: hsl(227, 100%, 88%);
+    font-weight: 900;
     border-radius: 1rem;
 }
 
-.button1 {
+.editbutton {
     background-color: hsl(227, 33%, 31%);
-    padding: .4rem 1rem;
+    padding: 6.4px 16px;
     color: hsl(0, 0%, 100%);
-    border-radius: 1rem;
+    font-weight: 900;
+    border-radius: 16px;
 }
 
 .main2 {
@@ -165,20 +169,29 @@
         width: 100%;
     }
 
+    .HeadingTwo{
+        font-weight: 600;
+    }
+
     .HeadingOne {
         font-size: 1.2rem;
         height: 1.5rem;
+        font-weight: 700;
     }
 
     .HeadingTwo,
-    .text4,
+    .commentext,
     .text3,
     .text5 {
-        font-size: .8rem;
+        font-size:13px;
     }
 
+    .commentext{
+        font-weight:900;
+    }
     .chipItems {
         font-size: .8rem;
+        font-weight:bolder;
         padding: .2rem .5rem;
     }
 
@@ -190,21 +203,20 @@
         height: 40%;
     }
 
-    .box31 {
+    .Divthree_One {
         height: 50%;
         width: 2rem;
         border-radius: .8rem;
     }
 
-    .image2 {
+    .UpvoteIcon {
         width: 40%;
     }
 
-    .image5 {
-        height: 60%;
-    }
-    .button1{
+    
+    .editbutton{
         padding: .2rem 1rem;
         font-size: .8em;
+        font-weight: 800;
     }
 }

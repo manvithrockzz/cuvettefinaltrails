@@ -63,7 +63,7 @@ const editPost = async (productDetails, id) => {
     } catch (err) {
       return {
         success: false,
-        message: 'Server fault! please tyr after sometime.'
+        message: 'Please Login to edit'
       };
     }
   };

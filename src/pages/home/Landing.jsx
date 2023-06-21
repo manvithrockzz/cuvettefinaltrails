@@ -9,21 +9,21 @@ import { UserContext } from '../../App';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ApplyFilter, getAllProducts } from '../../Client/api';
-import useWindowResize from '../../hooks/useWindowResize';
+import useResponsiveScreen from '../../hooks/useWindowResize';
 export default
     function HomePage() {
     const navigate = useNavigate();
 
     const { userLoggedIn, setUserLoggedIn, modalToShow, setModalToShow, view, setView, filterSelected, sortBy, setSortBy, updateAvailable, setUpdateAvailable,filterUpdateAvailable, setFilterUpdateAvailable } = useContext(UserContext);
-    const [productDisplay, setProductDisplay] = useState([]);
-    const [tagDisplay, setTagDisplay] = useState([]);
-    const [displaySortOptions, setDisplaySortOptions] = useState();
-    const { width } = useWindowResize();
-    const [displaySelect, setDisplaySelect] = useState('Select');
-    const [productCount, setProductCount] = useState();
+    const [visibleProducts, setVisibleProducts] = useState([]);
+    const [visibleTags, setVisibleTags] = useState([]);
+    const [optionsForDisplay, setOptionsForDisplay] = useState();
+    const { width } = useResponsiveScreen();
+    const [chosenItem, setChosenItem] = useState('Select');
+    const [itemNumber, setItemNumber] = useState();
 
     useEffect(() => {
-        setDisplaySortOptions(false);
+        setOptionsForDisplay(false);
     }, [])
     const getProductsAndDisplay = async () => {
         let query = '';
@@ -54,9 +54,9 @@ export default
                     />
                 )
             })
-            setProductDisplay(tempDisplay);
+            setVisibleProducts(tempDisplay);
             setUpdateAvailable(false);
-            setProductCount(tempDisplay.length);
+            setItemNumber(tempDisplay.length);
         }
         else {
             toast.error('Error in getting products, please retry!', { autoClose: 2000 });
@@ -83,7 +83,7 @@ export default
                 )
             })
 
-            setTagDisplay(tempDisplay);
+            setVisibleTags(tempDisplay);
             setFilterUpdateAvailable(false);
         }
         else {
@@ -97,7 +97,7 @@ export default
 
     useEffect(() => {
         if (updateAvailable) {
-            setProductDisplay('');
+            setVisibleProducts('');
             getProductsAndDisplay();
         }
     }, [updateAvailable])
@@ -130,15 +130,15 @@ export default
     }
 
     const handleFilter = (filter) => {
-        setDisplaySortOptions(displaySortOptions ? false : true)
+        setOptionsForDisplay(optionsForDisplay ? false : true)
         if (filter === 'Comments') {
             if (sortBy === 'comments') {
                 setSortBy('');
-                setDisplaySelect('Select');
+                setChosenItem('Select');
             }
             else {
                 setSortBy('comments');
-                setDisplaySelect(filter);
+                setChosenItem(filter);
 
             }
             setUpdateAvailable(true);
@@ -146,12 +146,12 @@ export default
         }
         else if (filter === 'UpVotes') {
             if (sortBy === 'likes') {
-                setDisplaySelect('Select');
+                setChosenItem('Select');
                 setSortBy('');
             }
             else {
                 setSortBy('likes');
-                setDisplaySelect(filter);
+                setChosenItem(filter);
 
             }
             setUpdateAvailable(true);
@@ -192,14 +192,14 @@ export default
                             <span className={styles.text5}>Feedback</span>
                         </div>
                         <div className={styles.box2}>
-                            {tagDisplay}
+                            {visibleTags}
                         </div>
                     </div>}
                 <div className={styles.lowerRight}>
 
                     <div className={styles.box3}>
                         <div className={styles.box31}>
-                            <span className={styles.text7}> {productCount} Suggestions</span>
+                            <span className={styles.text7}> {itemNumber} Suggestions</span>
                         </div>
                         <div className={styles.box32}>
                             <div className={styles.box321}>
@@ -207,9 +207,9 @@ export default
                             </div>
 
                             <div className={styles.box322}>
-                                <span className={styles.innerBox1} onClick={() => handleFilter('Select')}>&nbsp;{displaySelect}</span>
-                                {displaySortOptions && <span className={styles.innerBox2} onClick={() => handleFilter('UpVotes')}>&nbsp; Upvotes</span>}
-                                {displaySortOptions && <span className={styles.innerBox2} onClick={() => handleFilter('Comments')}>&nbsp; Comments</span>}
+                                <span className={styles.innerBox1} onClick={() => handleFilter('Select')}>&nbsp;{chosenItem}</span>
+                                {optionsForDisplay && <span className={styles.innerBox2} onClick={() => handleFilter('UpVotes')}>&nbsp; Upvotes</span>}
+                                {optionsForDisplay && <span className={styles.innerBox2} onClick={() => handleFilter('Comments')}>&nbsp; Comments</span>}
 
                             </div>
                         </div>
@@ -221,14 +221,14 @@ export default
                         <div className={styles.box00}>
                             <div className={styles.text9}>Filters: </div>
                             <div className={styles.box2}>
-                                {tagDisplay}
+                                {visibleTags}
                             </div>
                         </div>
 
                     }
 
                     <div className={styles.box5}>
-                        {productDisplay}
+                        {visibleProducts}
                     </div>
                 </div>
             </div>

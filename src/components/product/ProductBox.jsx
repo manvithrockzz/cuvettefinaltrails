@@ -95,16 +95,16 @@ export default
                     <div className={styles.productBoxDiv}>
                         {isChipsVisible}
                         <img src="../../Images/IconC2.png" alt="" className={styles.commentIcon} onClick={BoxtoggleComment} />
-                        <span className={styles.text4} onClick={BoxtoggleComment}>Comment</span>
-                        {userLoggedIn && <span className={`${styles.button1} `} onClick={handleEdit}>Edit</span>}
+                        <span className={styles.commentext} onClick={BoxtoggleComment}>Comment</span>
+                        {userLoggedIn && <span className={`${styles.editbutton} `} onClick={handleEdit}>Edit</span>}
                     </div>
                 </div>
-                <div className={styles.box3}>
-                    <div className={styles.box31} onClick={handleLikes}>
-                        <img src='../../Images/Upvote.png' className={styles.image2}></img>
+                <div className={styles.Divthree}>
+                    <div className={styles.Divthree_One} onClick={handleLikes}>
+                        <img src='../../Images/Upvote.png' className={styles.UpvoteIcon}></img>
                         <span className={styles.text3}>{numLikes}</span>
                     </div>
-                    <div className={styles.box32}>
+                    <div className={styles.Divthreetwo}>
                         <span className={styles.text5}>{totalComments}</span>
                         <img src="../../Images/IconC1.png" alt="" className={styles.image5} />
                     </div>
@@ -123,6 +123,8 @@ export default
         </>
     )
 }
+
+
 
 
 
