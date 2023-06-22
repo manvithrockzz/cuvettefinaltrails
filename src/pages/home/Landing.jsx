@@ -111,7 +111,7 @@ export default
     const handleLoginLogout = () => {
         if (activeUser) {
             setActiveUser(false);
-            toast.success('User Logged out!');
+            toast.success('User Sucessfully Logged-out!');
             localStorage.removeItem('feedbackUser');
         }
         else {

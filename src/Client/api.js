@@ -1,78 +1,73 @@
 import axios from 'axios';
 
-const api = axios.create({
+const axiosInstance = axios.create({
     baseURL: "https://backendfinal-7d89.onrender.com"
-
 });
 
 const Upvote = async (ObjId) => {
     try {
-        const response = await api.patch(`/product/like/${ObjId}`);
-        return ({
+        const response = await axiosInstance.patch(`/product/like/${ObjId}`);
+        return {
             success: response.data.success,
             message: response.data.message
-        });
-    }
-    catch (err) {
-        return ({
+        };
+    } catch (err) {
+        return {
             success: false,
-            message: 'Couldnot upvote at the moment, Please try again'
-        })
+            message: 'Could not upvote at the moment. Please try again.'
+        };
     }
-}
+};
 
 const Postcomment = async (productObj) => {
     try {
-        const response = await api.patch(`/product/comment/${productObj.id}`, {
+        const response = await axiosInstance.patch(`/product/comment/${productObj.id}`, {
             comment: productObj.comment
-        })
-        return ({
+        });
+        return {
             success: response.data.success,
             message: response.data.message
-        });
-
-    }
-    catch (err) {
-        return ({
+        };
+    } catch (err) {
+        return {
             success: false,
-            message: 'Couldnot Comment now, please try again'
-        })
-
+            message: 'Could not comment now. Please try again.'
+        };
     }
-}
+};
 
 const editPost = async (productDetails, id) => {
     try {
-      const token = JSON.parse(localStorage.getItem('feedbackUser'));
-      const product_category = productDetails.category.split(/\s*,\s*/);
+        const token = JSON.parse(localStorage.getItem('feedbackUser'));
+        const product_category = productDetails.category.split(/\s*,\s*/);
   
-      const response = await api.patch(`/product/edit/${id}`, {
-        product_name: productDetails.name,
-        logo_url: productDetails.logoUrl,
-        product_link: productDetails.productLink,
-        product_description: productDetails.productDescription,
-        product_category
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+        const response = await axiosInstance.patch(`/product/edit/${id}`, {
+            product_name: productDetails.name,
+            logo_url: productDetails.logoUrl,
+            product_link: productDetails.productLink,
+            product_description: productDetails.productDescription,
+            product_category
+        }, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
   
-      return {
-        success: response.data.success,
-        message: response.data.message
-      };
+        return {
+            success: response.data.success,
+            message: response.data.message
+        };
     } catch (err) {
-      return {
-        success: false,
-        message: 'Please Login to edit'
-      };
+        return {
+            success: false,
+            message: 'Please login to edit.'
+        };
     }
-  };
+};
 
-  const addProduct = async (productDetails) => {
+const addProduct = async (productDetails) => {
     try {
         const token = JSON.parse(localStorage.getItem('feedbackUser'));
         const product_category = productDetails.category.split(/\s*,\s*/);
-        const response = await api.post('/product/add', {
+        const response = await axiosInstance.post('/product/add', {
             product_name: productDetails.name,
             logo_url: productDetails.logoUrl,
             product_link: productDetails.productLink,
@@ -82,22 +77,21 @@ const editPost = async (productDetails, id) => {
             headers: { Authorization: `Bearer ${token}` }
         });
 
-        return ({
+        return {
             success: response.data.success,
             message: response.data.message
-        });
-    }
-    catch (err) {
-        return ({
+        };
+    } catch (err) {
+        return {
             success: false,
-            message: 'Server fault! please tyr after sometime'
-        })
+            message: 'Server fault! Please try again later.'
+        };
     }
-}
+};
 
 const ApplyFilter = async () => {
     try {
-        const response = await api.get(`/product/view`);
+        const response = await axiosInstance.get(`/product/view`);
         if (response.data.success) {
             const distinctTags = new Set();
             distinctTags.add('All');
@@ -110,27 +104,22 @@ const ApplyFilter = async () => {
             }
             const distinctTagsArray = Array.from(distinctTags);
 
-            return ({
+            return {
                 success: true,
                 data: distinctTagsArray
-            });
-        }
-        else {
-            return ({
+            };
+        } else {
+            return {
                 success: true,
-                data: [
-                    'All'
-                ]
-            })
+                data: ['All']
+            };
         }
+    } catch (err) {
+        return {
+            success: false
+        };
     }
-    catch (err) {
-        return ({
-            success: false,
-        })
-    }
-
-}
+};
 
 const getAllProducts = async (query) => {
     try {
@@ -139,61 +128,56 @@ const getAllProducts = async (query) => {
             queryData = '?';
             queryData += query;
         }
-        const response = await api.get(`/product/view${queryData}`);
-        return ({
+        const response = await axiosInstance.get(`/product/view${queryData}`);
+        return {
             success: response.data.success,
             data: response.data.data
-        })
-    }
-    catch (err) {
-        return ({
+        };
+    } catch (err) {
+        return {
             success: false,
-            message: 'Server fault! please tyr after sometime.'
-        })
+            message: 'Server fault! Please try again later.'
+        };
     }
-}
+};
 
 const getsucessfullRegisteredUser = async (ClientInfo) => {
     try {
         const { name, email, mobile, password } = ClientInfo;
-        const response = await api.post('/user/register', {
-            name, mobile, email, password
-        })
-        return (
-            {
-                success: response.data.success,
-                message: response.data.message
-            }
-        );
-
-    }
-    catch (err) {
-        return ({
+        const response = await axiosInstance.post('/user/register', {
+            name,
+            mobile,
+            email,
+            password
+        });
+        return {
+            success: response.data.success,
+            message: response.data.message
+        };
+    } catch (err) {
+        return {
             success: false,
-            message: 'couldnot make registration request, please try after sometime'
-        })
+            message: 'Could not make registration request. Please try again later.'
+        };
     }
-}
+};
 
 const LoginUser = async (ClientInfo) => {
-
     const { email, password } = ClientInfo;
-    const response = await api.post('/user/login', {
-        email, password
-    })
+    const response = await axiosInstance.post('/user/login', {
+        email,
+        password
+    });
     if (response.data.token) {
         localStorage.setItem('feedbackUser', JSON.stringify(response.data.token));
     }
-    return (
-        {
-            success: response.data.success,
-            message: response.data.message,
-            token: response.data.token
-        }
-    );
+    return {
+        success: response.data.success,
+        message: response.data.message,
+        token: response.data.token
+    };
+};
 
-}
- 
 export {
     getsucessfullRegisteredUser,
     LoginUser,
@@ -203,5 +187,4 @@ export {
     Upvote,
     Postcomment,
     editPost
-}
-
+};
