@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
         mobile: '',
         password: ''
     })
-    const [errors, setErrors] = useState({});
+    const [issue, setIssue] = useState({});
     // eslint-disable-next-line no-unused-vars
     const navigate = useNavigate();
     const {setActivePopup} = useContext(UserContext);
@@ -51,7 +51,7 @@ import 'react-toastify/dist/ReactToastify.css';
             }
         }
         else {
-            setErrors(result.errors);
+            setIssue(result.issue);
         }
     }
 
@@ -68,25 +68,25 @@ import 'react-toastify/dist/ReactToastify.css';
                     <img src="../../Images/IconU.png" alt="Enter your name" className={styles.signupImages} />
                     <input placeholder='Name' className={styles.entervalueOne} name='name' onChange={processInput} ></input>
                 </div>
-                {errors.name && <span className={styles.redMessage}>{errors.name}</span>}
+                {issue.name && <span className={styles.redMessage}>{issue.name}</span>}
 
                 <div className={styles.mainDiv}>
                     <img src="../../Images/IconE.png" alt="Enter you email-id" className={styles.signupImages} />
                     <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={processInput} ></input>
                 </div>
-                {errors.email && <span className={styles.redMessage}>{errors.email}</span>}
+                {issue.email && <span className={styles.redMessage}>{issue.email}</span>}
 
                 <div className={styles.mainDiv}>
                     <img src="../../Images/Phone.png" alt="Enter your Mobile Number" className={styles.signupImages} />
                     <input type='Number' placeholder='Mobile' className={styles.entervalueOne} name='mobile' onChange={processInput} ></input>
                 </div>
-                {errors.mobile && <span className={styles.redMessage}>{errors.mobile}</span>}
+                {issue.mobile && <span className={styles.redMessage}>{issue.mobile}</span>}
 
                 <div className={styles.subDiv}>
                     <img src="../../Images/Lock.png" alt="Enter your Password" className={styles.secondsignupImage} />
                     <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={processInput} />
                 </div>
-                {errors.password && <span className={styles.redMessage}>{errors.password}</span>}
+                {issue.password && <span className={styles.redMessage}>{issue.password}</span>}
 
                 <span className={styles.buttomDiv}>Already have an account? <span className={styles.messageB} onClick={handleLogin} >Login</span></span>
 

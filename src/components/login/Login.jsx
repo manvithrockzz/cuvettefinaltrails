@@ -16,7 +16,7 @@ export default
         email: '',
         password: ''
     })
-    const [errors, setErrors] = useState({});
+    const [issue, setIssue] = useState({});
     const { setActiveUser, setActivePopup } = useContext(UserContext);
 
 
@@ -53,7 +53,7 @@ export default
 
         }
         else {
-            setErrors(result.errors);
+            setIssue(result.issue);
         }
     }
 
@@ -69,12 +69,12 @@ export default
                 <img src="../../Images/IconE.png" alt="Enter your Email adress" className={styles.emailIcon} />
                 <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={processInput}></input>
             </div>
-            {errors.email && <span className={styles.error}>{errors.email}</span>}
+            {issue.email && <span className={styles.error}>{issue.email}</span>}
             <div className={styles.subDiv}>
                 <img src="../../Images/Lock.png" alt="Enter your password" className={styles.passwordIcon} />
                 <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={processInput} />
             </div>
-            {errors.password && <span className={styles.error}>{errors.password}</span>}
+            {issue.password && <span className={styles.error}>{issue.password}</span>}
             <span className={styles.bottomDiv}>Don’t have an account? <span className={styles.signupMessage} onClick={handleSignUp}>Sign up </span></span>
             <div className={styles.buttonDiv}>
                 <span className={styles.loginButton} onClick={attemptLogin}>Login</span>

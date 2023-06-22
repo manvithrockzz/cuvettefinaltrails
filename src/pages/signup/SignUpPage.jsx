@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
         mobile: '',
         password: ''
     })
-    const [errors, setErrors] = useState({});
+    const [issue, setIssue] = useState({});
     const navigate = useNavigate();
 
 
@@ -41,15 +41,15 @@ import 'react-toastify/dist/ReactToastify.css';
             const userRegistration = await getsucessfullRegisteredUser(userToBeValidated);
 
             if (userRegistration.success) {
-                toast.success(userRegistration.message, { autoClose: 3000 });
+                toast.success(userRegistration.message, { autoClose: 2000 });
                 navigate('/login');
             }
             else {
-                toast.error(userRegistration.message, {autoClose: 3000});
+                toast.error(userRegistration.message, {autoClose: 2000});
             }
         }
         else {
-            setErrors(result.errors);
+            setIssue(result.issue);
         }
     }
 
@@ -58,40 +58,40 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
     return (
-        <div className={styles.main}>
+        <div className={styles.SignUpDiv}>
 
-            <h1 className={styles.text1}>Feedback</h1>
-            <h3 className={styles.text2}>Add your products and give us your valuable feedback</h3>
+            <h1 className={styles.Headdingone}>Feedback</h1>
+            <h3 className={styles.Headingtwo}>Add your products and give us your valuable feedback</h3>
 
-            <div className={styles.mainBox}>
+            <div className={styles.SignupContainer}>
 
-                <div className={styles.box1}>
-                    <img src="../../Images/IconU.png" alt="img-1" className={styles.image1} />
-                    <input placeholder='Name' className={styles.input1} name='name' onChange={processInput} ></input>
+                <div className={styles.ImageDivOne}>
+                    <img src="../../Images/IconU.png" alt="UIcon-Ima" className={styles.image1} />
+                    <input placeholder='Name' className={styles.Entertextone} name='name' onChange={processInput} ></input>
                 </div>
-                {errors.name && <span className={styles.error}>{errors.name}</span>}
+                {issue.name && <span className={styles.RedMessage}>{issue.name}</span>}
 
-                <div className={styles.box1}>
-                    <img src="../../Images/IconE.png" alt="img-1" className={styles.image1} />
-                    <input placeholder='Email' className={styles.input1} name='email' onChange={processInput} ></input>
+                <div className={styles.ImageDivOne}>
+                    <img src="../../Images/IconE.png" alt="Enter your email adress" className={styles.image1} />
+                    <input placeholder='Email' className={styles.Entertextone} name='email' onChange={processInput} ></input>
                 </div>
-                {errors.email && <span className={styles.error}>{errors.email}</span>}
+                {issue.email && <span className={styles.RedMessage}>{issue.email}</span>}
 
-                <div className={styles.box1}>
-                    <img src="../../Images/Phone.png" alt="img-1" className={styles.image1} />
-                    <input type='Number' placeholder='Mobile' className={styles.input1} name='mobile' onChange={processInput} ></input>
+                <div className={styles.ImageDivOne}>
+                    <img src="../../Images/Phone.png" alt="Enter your ph number" className={styles.image1} />
+                    <input type='Number' placeholder='Mobile' className={styles.Entertextone} name='mobile' onChange={processInput} ></input>
                 </div>
-                {errors.mobile && <span className={styles.error}>{errors.mobile}</span>}
+                {issue.mobile && <span className={styles.RedMessage}>{issue.mobile}</span>}
 
-                <div className={styles.box2}>
-                    <img src="../../Images/Lock.png" alt="img-2" className={styles.image2} />
-                    <input type="password" placeholder='Password' className={styles.input2} name='password' onChange={processInput} />
+                <div className={styles.ImageDivTwo}>
+                    <img src="../../Images/Lock.png" alt="Password-img" className={styles.image2} />
+                    <input type="password" placeholder='Password' className={styles.TwoEnterText} name='password' onChange={processInput} />
                 </div>
-                {errors.password && <span className={styles.error}>{errors.password}</span>}
+                {issue.password && <span className={styles.RedMessage}>{issue.password}</span>}
 
-                <span className={styles.box3}>Already have an account? <span className={styles.text3} onClick={handleLogin} >Login</span></span>
+                <span className={styles.LoginMessage}>Already have an account? <span className={styles.text3} onClick={handleLogin} >Login</span></span>
 
-                <div className={styles.box4}>
+                <div className={styles.SignupBtn}>
                     <span className={styles.button1} onClick={attemptLogin} >Signup</span>
                 </div>
             </div>
@@ -100,3 +100,4 @@ import 'react-toastify/dist/ReactToastify.css';
 }
 
 export default SignUpPage;
+

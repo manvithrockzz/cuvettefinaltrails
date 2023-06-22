@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
         email: '',
         password: ''
     })
-    const [errors, setErrors] = useState({});
+    const [issue, setIssue] = useState({});
     const {setActiveUser} = useContext(UserContext);
     const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ import 'react-toastify/dist/ReactToastify.css';
             
         }
         else {
-            setErrors(result.errors);
+            setIssue(result.issue);
         }
     }
 
@@ -67,12 +67,12 @@ import 'react-toastify/dist/ReactToastify.css';
                     <img src="../../Images/IconE.png" alt="email" className={styles.emailIcon} />
                     <input  placeholder='Email' className={styles.emailInput} name='email' onChange={processInput}></input>
                 </div>
-                {errors.email && <span className={styles.MessageError}>{errors.email}</span>}
+                {issue.email && <span className={styles.MessageError}>{issue.email}</span>}
                 <div className={styles.mid_div}>
                     <img src="../../Images/Lock.png" alt="password" className={styles.passwordIcon} />
                     <input  type="password" placeholder='Password' className={styles.passwordInput} name='password' onChange={processInput} />
                 </div>
-                {errors.password && <span className={styles.MessageError}>{errors.password}</span>}
+                {issue.password && <span className={styles.MessageError}>{issue.password}</span>}
                 <span className={styles.SignInbox}>Don’t have an account? <span className={styles.SignupText} onClick={handleSignUp}>Sign up </span></span>
                 <div className={styles.btn_div}>
                     <span className={styles.button1} onClick={attemptLogin}>Login</span>
