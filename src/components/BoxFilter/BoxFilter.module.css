@@ -1,6 +1,5 @@
 
-
-.main {
+.BoxFilter {
     padding: 0 16px;
     display: flex;
     border-radius: 16px;
@@ -13,7 +12,8 @@
     font-weight: 900;
 }
 
-.selected {
+.Filterupon {
     color: hsl(0, 0%, 100%);
     background-color: hsl(227, 33%, 31%);
 }
+

@@ -17,7 +17,7 @@ export default
 
 
     return (
-        <div className={`${Component.main} ${isSelected && Component.selected}`} onClick={handleClick}>
+        <div className={`${Component.BoxFilter} ${isSelected && Component.Filterupon}`} onClick={handleClick}>
             {name}
         </div>
     )

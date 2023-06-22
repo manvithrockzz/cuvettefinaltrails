@@ -101,21 +101,21 @@ import { UserContext } from '../../App';
                 <div className={styles.Divthree}>
                     <div className={styles.Divthree_One} onClick={handleLikes}>
                         <img src='../../Images/Upvote.png' className={styles.UpvoteIcon}></img>
-                        <span className={styles.text3}>{numLikes}</span>
+                        <span className={styles.NumofLikes}>{numLikes}</span>
                     </div>
                     <div className={styles.Divthreetwo}>
-                        <span className={styles.text5}>{totalComments}</span>
-                        <img src="../../Images/IconC1.png" alt="" className={styles.image5} />
+                        <span className={styles.NumofComments}>{totalComments}</span>
+                        <img src="../../Images/IconC1.png" alt="" className={styles.CommentIconOne} />
                     </div>
                 </div>
 
             </div>
-            {isBoxCommentVisible && <div className={styles.main2}>
-                <div className={styles.top}>
+            {isBoxCommentVisible && <div className={styles.ProcutBoxContainerDiv}>
+                <div className={styles.AddCommentDiv}>
                     <input className={styles.commentBox} placeholder='Add a comment...' onChange={handleCommentInputChange}></input>
-                    <img src="../../Images/Submit.png" alt="" className={styles.image4} onClick={handleSubmitComment} />
+                    <img src="../../Images/Submit.png" alt="" className={styles.SubmitIcon} onClick={handleSubmitComment} />
                 </div>
-                <div className={styles.bottom}>
+                <div className={styles.DivcLASS}>
                     {commentDisplayState}
                 </div>
             </div>}

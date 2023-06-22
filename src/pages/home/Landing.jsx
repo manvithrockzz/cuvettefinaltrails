@@ -9,7 +9,7 @@ import { UserContext } from '../../App';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ApplyFilter, getAllProducts } from '../../Client/api';
-import useResponsiveScreen from '../../hooks/useWindowResize';
+import useResponsiveScreen from '../../reactHelper/handleListner';
 export default
     function LandingPage() {
     const navigate = useNavigate();
@@ -171,7 +171,7 @@ export default
                 <span className={styles.text1}>Feedback</span>
                 <div className={styles.HeaderBox}>
                     <span className={styles.logintext} onClick={handleLoginLogout}>{activeUser ? 'Logout' : 'Login'}</span>
-                    <span className={styles.logintext} onClick={handleSignUp}>{activeUser ? `Hello  ` : 'Sign up'}{activeUser &&  <h2> </h2>}</span>
+                    <span className={styles.logintext} onClick={handleSignUp}>{activeUser ? `Welcome  ` : 'Sign up'}{activeUser &&  <p> :/ </p> }</span>
                 </div>
             </div>
             <div className={styles.bodyUpper}>
