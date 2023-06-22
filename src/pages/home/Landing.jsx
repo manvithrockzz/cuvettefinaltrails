@@ -167,67 +167,67 @@ export default
 
     return (
         <>
-            <div className={styles.header}>
-                <span className={styles.text1}>Feedback</span>
-                <div className={styles.HeaderBox}>
-                    <span className={styles.logintext} onClick={handleLoginLogout}>{activeUser ? 'Logout' : 'Login'}</span>
-                    <span className={styles.logintext} onClick={handleSignUp}>{activeUser ? `Welcome  ` : 'Sign up'}{activeUser &&  <p> :/ </p> }</span>
+            <div className={styles.HomeDiv}>
+                <span className={styles.HomeHeading}>Feedback</span>
+                <div className={styles.mainDiv}>
+                    <span className={styles.navButtons} onClick={handleLoginLogout}>{activeUser ? 'Logout' : 'Login'}</span>
+                    <span className={styles.navButtons} onClick={handleSignUp}>{activeUser ? `Welcome  ` : 'Sign up'}{activeUser &&  <h5> :/ </h5> }</span>
                 </div>
             </div>
-            <div className={styles.bodyUpper}>
-                <div className={styles.upLeft}>
-                    <img src='../../Images/image1.png' className={styles.image1}></img>
+            <div className={styles.Imagetext}>
+                <div className={styles.ImageContainer}>
+                    <img src='../../Images/image1.png' className={styles.HomeImage}></img>
                 </div>
-                <div className={styles.upRight}>
-                    <span className={styles.text3}>Add your products and give your valuable feedback</span>
-                    <span className={styles.text4}>Easily give your feedback in a matter of minutes. Access your audience on all platforms. Observe result manually in real time</span>
+                <div className={styles.textDiv}>
+                    <span className={styles.Addproduct}>Add your products and give your valuable feedback</span>
+                    <span className={styles.feedbackText}>Easily give your feedback in a matter of minutes. Access your audience on all platforms. Observe result manually in real time</span>
                 </div>
             </div>
 
-            <div className={styles.bodyLower}>
+            <div className={styles.formDiv}>
                 {width > 600 &&
-                    <div className={styles.lowerLeft}>
-                        <div className={styles.box1}>
-                            <span className={styles.text6}>Apply Filter</span>
-                            <span className={styles.text5}>Feedback</span>
+                    <div className={styles.Filtersdiv}>
+                        <div className={styles.filtertextdiv}>
+                            <span className={styles.ApplyText}>Apply Filter</span>
+                            <span className={styles.feedbacktextbox}>Feedback</span>
                         </div>
-                        <div className={styles.box2}>
+                        <div className={styles.TagsDiv}>
                             {visibleTags}
                         </div>
                     </div>}
-                <div className={styles.lowerRight}>
+                <div className={styles.productsDiv}>
 
-                    <div className={styles.box3}>
-                        <div className={styles.box31}>
-                            <span className={styles.text7}> {itemNumber} Suggestions</span>
+                    <div className={styles.SuggestionsDiv}>
+                        <div className={styles.SuggestiononeDiv}>
+                            <span className={styles.SuggestionsText}> {itemNumber} Suggestions</span>
                         </div>
-                        <div className={styles.box32}>
-                            <div className={styles.box321}>
-                                <span className={styles.text8} >Sort By: </span>
+                        <div className={styles.sortText}>
+                            <div className={styles.TextoneSort}>
+                                <span className={styles.Sortbytext} >Sort By: </span>
                             </div>
 
-                            <div className={styles.box322}>
-                                <span className={styles.innerBox1} onClick={() => handleFilter('Select')}>&nbsp;{chosenItem}</span>
-                                {optionsForDisplay && <span className={styles.innerBox2} onClick={() => handleFilter('UpVotes')}>&nbsp; Upvotes</span>}
-                                {optionsForDisplay && <span className={styles.innerBox2} onClick={() => handleFilter('Comments')}>&nbsp; Comments</span>}
+                            <div className={styles.SelectContainer}>
+                                <span className={styles.OneSelectContainer} onClick={() => handleFilter('Select')}>&nbsp;{chosenItem}</span>
+                                {optionsForDisplay && <span className={styles.TwoSelectContainer} onClick={() => handleFilter('UpVotes')}>&nbsp; Upvotes</span>}
+                                {optionsForDisplay && <span className={styles.TwoSelectContainer} onClick={() => handleFilter('Comments')}>&nbsp; Comments</span>}
 
                             </div>
                         </div>
-                        <div className={styles.box4} onClick={handleAddProducts}>+ Add Products</div>
+                        <div className={styles.Product_btn} onClick={handleAddProducts}>+ Add Products</div>
                     </div>
 
                     {
                         width < 600 &&
-                        <div className={styles.box00}>
-                            <div className={styles.text9}>Filters: </div>
-                            <div className={styles.box2}>
+                        <div className={styles.WholeContainer}>
+                            <div className={styles.filtertext}>Filters: </div>
+                            <div className={styles.TagsDiv}>
                                 {visibleTags}
                             </div>
                         </div>
 
                     }
 
-                    <div className={styles.box5}>
+                    <div className={styles.VisibleProductdiv}>
                         {visibleProducts}
                     </div>
                 </div>

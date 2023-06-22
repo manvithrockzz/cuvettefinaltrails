@@ -64,7 +64,8 @@
 }
 
 .LoginMessage{
-    font-size: 16px;
+    font-size: 19px;
+    font-weight: 700;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
     color: hsl(0, 0%, 45%);

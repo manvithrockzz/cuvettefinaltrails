@@ -53,21 +53,26 @@
 }
 
 .buttomDiv{
-    font-size: 1rem;
+    font-size: 16px;
     color: hsl(0, 0%, 45%);
     font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
 }
+
 .messageB{
     color: hsl(227, 33%, 31%);
     text-decoration: underline;
     cursor: pointer;
     margin-left: .4rem;
+    font-weight: 900;
 }
 
 .buttonDiv{
     flex-direction: row-reverse;
     font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
 }
+
 .signupButton{
     background-color: hsl(227, 33%, 31%);
     width: 5rem;
@@ -81,7 +86,7 @@
 }
 
 .redMessage{
-    height: 1rem;
+    height:7px;
     width: calc(90% - 1rem);
     margin-left: 6rem;
     color: hsl(0, 100%, 50%);
