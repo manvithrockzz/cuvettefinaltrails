@@ -10,7 +10,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ApplyFilter, getAllProducts } from '../../Client/api';
 import useResponsiveScreen from '../../reactHelper/handleListner';
-export default
     function LandingPage() {
     const navigate = useNavigate();
 
@@ -239,3 +238,4 @@ export default
 }
 
 
+export default LandingPage;
