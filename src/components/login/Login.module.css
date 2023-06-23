@@ -43,8 +43,9 @@
     height: 33px;
     border-bottom: 1px solid hsl(0, 0%, 67%);
     color: hsl(0, 0%, 45%);
-    width: calc(100% - 1rem);
+    width: calc(99% - 14px);
 }
+
 
 
 
@@ -89,7 +90,7 @@
 
 .error{
     color: hsl(0, 100%, 50%);
-    width: calc(90% - 1rem);
+    width: calc(89% - 15px);
     margin-left: 95px;
 
 }

@@ -5,9 +5,9 @@
 }
 
 .HomeDiv {
-    margin-bottom: 1rem;
+    margin-bottom: 19px;
     width: 100vw;
-    height: 3rem;
+    height: 50px;
     background-color: hsl(227, 33%, 31%);
     color: hsl(0, 0%, 100%);
     display: flex;
@@ -26,16 +26,15 @@
 
 .mainDiv {
     height: 100%;
-    padding: 0 1rem;
-
+    padding: 0 16px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
+
 .navButtons {
-    
-    padding: 0 .5rem;
+    padding: 0 9px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     height: 80%;
@@ -84,14 +83,14 @@
 
 .Addproduct {
     width: 80%;
-    font-size: 3rem;
+    font-size: 50px;
     font-weight: 600;
 }
 
 .feedbackText{
     width: 80%;
-    margin-top: 2rem;
-    font-size: 1.4rem;
+    margin-top: 32px;
+    font-size: 23px;
     color: hsl(0, 0%, 42%);
 }
 
@@ -161,22 +160,20 @@
 }
 
 .SuggestionsDiv {
-    height: 3rem;
+    height: 50px;
     width: 90%;
-    margin: 1rem;
+    margin:15px;
     border: 1px solid hsla(227, 33%, 31%, 0.349);
-    border-radius: .5rem;
-
+    border-radius: 8.1px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-
 }
 
 .SuggestiononeDiv {
     width: 30%;
-    padding: 0 .5rem;
+    padding: 0 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,15 +190,15 @@
 }
 
 .TextoneSort {
-    padding: 0 1rem;
+    padding: 0 12px;
 }
 
 .SelectContainer {
-    height: 7rem;
-    width: calc(100% - 5rem);
+    height: 112px;
+    width: calc(100% - 80px);
     position: absolute;
-    left: 5rem;
-    top: 0px;
+    left: 65px;
+    top: -1px;
     display: flex;
     font-family: 'Courier New', Courier, monospace;
     flex-direction: column;
@@ -209,23 +206,23 @@
 }
 
 .OneSelectContainer {
-    height: 3rem;
-    padding-left: .5rem;
+    height: 53px;
+    padding-left: 10px;
     font-weight: 900;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 17.5px;
     display: flex;
     align-items: center;
 }
 
 .TwoSelectContainer {
-    height: 2rem;
+    height: 32px;
     text-align: center;
     width:135px;
     background-color: hsl(0, 0%, 50%);
     color:hsl(0, 0%, 100%);
     font-weight: bold;
-    padding-left: .5rem;
+    padding-left: 10px;
     display: flex;
     align-items: center;
 }
@@ -251,7 +248,8 @@
 
 .Sortbytext {
     color: hsl(0, 0%, 55%);
-    font-size: 1rem;
+    font-size:15px;
+    font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -262,11 +260,12 @@
 .VisibleProductdiv {
     width: 90%;
     min-height: 80%;
-    padding: .5rem 0 2rem 0;
+    padding: 9px 0 33px 0;
     cursor: pointer;
-    margin: 2rem 1rem;
-    border-radius: .5rem;
+    margin: 33px 15px;
+    border-radius: 9px;
 }
+
 
 @media screen and (max-width:600px) {
 
@@ -327,7 +326,7 @@
         color: hsl(0, 0%, 55%);
         font-weight: 600;
         font-family: 'Courier New', Courier, monospace;
-        font-size: 1rem;
+        font-size: 16px;
     }
 
     .Addproduct .feedbackText{
@@ -355,7 +354,7 @@
         padding: 0;
     }
     .SelectContainer{
-        left: 3rem;
+        left:50px;
         margin: 0;
         padding: 0;
     }

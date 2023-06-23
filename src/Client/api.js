@@ -58,7 +58,7 @@ const editPost = async (productDetails, id) => {
     } catch (err) {
         return {
             success: false,
-            message: 'Please login to edit.'
+            message: 'Please login again !'
         };
     }
 };

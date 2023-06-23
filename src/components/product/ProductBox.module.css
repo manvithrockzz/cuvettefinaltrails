@@ -7,7 +7,7 @@
 .ProductBoxContainer{
     background-color: hsla(227, 33%, 31%, 0.149);
     margin-top: 18px;
-    border-radius: .4rem .5rem 8px 8px;
+    border-radius: 7px 7px 1px 1px;
     display: flex;
     min-height: 128px;
     padding:9px;
@@ -139,27 +139,26 @@
 }
 
 .SubmitIcon {
-    height: 2.5rem;
-    padding: .5rem;
+    height:40px;
+    padding: 7px;
     background-color: hsl(0, 0%, 100%);
     object-fit: contain;
-    border-radius: 0 1.25rem 1.25rem 0;
+    border-radius: 0 21px 21px 0;
 }
 
 .DivcLASS {
-    height: 8rem;
+    height: 131px;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 15px;
     overflow: scroll;
 }
 
 .comments {
-    padding: .5rem 1rem;
+    padding: 7px 15px;
     background-color: hsl(224, 15%, 81%);
-    margin: .25rem .5rem;
-    border-radius: 1rem;
-
+    margin: 5px 7px;
+    border-radius: 15px;
 }
 
 @media screen and (max-width: 600px) {
@@ -176,8 +175,8 @@
     }
 
     .HeadingOne {
-        font-size: 1.2rem;
-        height: 1.5rem;
+        font-size: 19.2px;
+        height: 23px;
         font-weight: 700;
     }
 
@@ -192,13 +191,13 @@
         font-weight:900;
     }
     .chipItems {
-        font-size: .8rem;
+        font-size: 12px;
         font-weight:bolder;
-        padding: .2rem .5rem;
+        padding: 3px 8px;
     }
 
     .productBoxDiv {
-        gap: .3rem;
+        gap: 4px;
     }
 
     .commentIcon {
@@ -207,8 +206,8 @@
 
     .Divthree_One {
         height: 50%;
-        width: 2rem;
-        border-radius: .8rem;
+        width: 32px;
+        border-radius: 12px;
     }
 
     .UpvoteIcon {
@@ -217,7 +216,7 @@
 
     
     .editbutton{
-        padding: .2rem 1rem;
+        padding: 3px 15.9px;
         font-size: .8em;
         font-weight: 800;
     }

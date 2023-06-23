@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import styles from './SignUp.module.css'
+import component from './SignUp.module.css'
 import { ValidationForm } from '../../Client/Formvalidation';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
@@ -62,36 +62,36 @@ import 'react-toastify/dist/ReactToastify.css';
     return (
         
 
-            <div className={styles.signupContainer}>
-                <span className={styles.signupMessage}>Sign-up to continue</span>
-                <div className={styles.mainDiv}>
-                    <img src="../../Images/IconU.png" alt="Enter your name" className={styles.signupImages} />
-                    <input placeholder='Name' className={styles.entervalueOne} name='name' onChange={processInput} ></input>
+            <div className={component.signupContainer}>
+                <span className={component.signupMessage}>Sign-up to continue</span>
+                <div className={component.mainDiv}>
+                    <img src="../../Images/IconU.png" alt="Enter your name" className={component.signupImages} />
+                    <input placeholder='Name' className={component.entervalueOne} name='name' onChange={processInput} ></input>
                 </div>
-                {issue.name && <span className={styles.redMessage}>{issue.name}</span>}
+                {issue.name && <span className={component.redMessage}>{issue.name}</span>}
 
-                <div className={styles.mainDiv}>
-                    <img src="../../Images/IconE.png" alt="Enter you email-id" className={styles.signupImages} />
-                    <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={processInput} ></input>
+                <div className={component.mainDiv}>
+                    <img src="../../Images/IconE.png" alt="Enter you email-id" className={component.signupImages} />
+                    <input placeholder='Email' className={component.entervalueOne} name='email' onChange={processInput} ></input>
                 </div>
-                {issue.email && <span className={styles.redMessage}>{issue.email}</span>}
+                {issue.email && <span className={component.redMessage}>{issue.email}</span>}
 
-                <div className={styles.mainDiv}>
-                    <img src="../../Images/Phone.png" alt="Enter your Mobile Number" className={styles.signupImages} />
-                    <input type='Number' placeholder='Mobile' className={styles.entervalueOne} name='mobile' onChange={processInput} ></input>
+                <div className={component.mainDiv}>
+                    <img src="../../Images/Phone.png" alt="Enter your Mobile Number" className={component.signupImages} />
+                    <input type='Number' placeholder='Mobile' className={component.entervalueOne} name='mobile' onChange={processInput} ></input>
                 </div>
-                {issue.mobile && <span className={styles.redMessage}>{issue.mobile}</span>}
+                {issue.mobile && <span className={component.redMessage}>{issue.mobile}</span>}
 
-                <div className={styles.subDiv}>
-                    <img src="../../Images/Lock.png" alt="Enter your Password" className={styles.secondsignupImage} />
-                    <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={processInput} />
+                <div className={component.subDiv}>
+                    <img src="../../Images/Lock.png" alt="Enter your Password" className={component.secondsignupImage} />
+                    <input type="password" placeholder='Password' className={component.entervalueTwo} name='password' onChange={processInput} />
                 </div>
-                {issue.password && <span className={styles.redMessage}>{issue.password}</span>}
+                {issue.password && <span className={component.redMessage}>{issue.password}</span>}
 
-                <span className={styles.buttomDiv}>Already have an account? <span className={styles.messageB} onClick={handleLogin} >Login</span></span>
+                <span className={component.buttomDiv}>Already have an account? <span className={component.messageB} onClick={handleLogin} >Login</span></span>
 
-                <div className={styles.buttonDiv}>
-                    <span className={styles.signupButton} onClick={attemptLogin} >Signup</span>
+                <div className={component.buttonDiv}>
+                    <span className={component.signupButton} onClick={attemptLogin} >Signup</span>
                 </div>
             </div>
         

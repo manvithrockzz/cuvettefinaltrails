@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './SignUpPage.module.css'
+import component from './SignUpPage.module.css'
 import { ValidationForm} from '../../Client/Formvalidation';
 import { useNavigate } from 'react-router-dom';
 import { getsucessfullRegisteredUser } from '../../Client/api';
@@ -58,41 +58,41 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
     return (
-        <div className={styles.SignUpDiv}>
+        <div className={component.SignUpDiv}>
 
-            <h1 className={styles.Headdingone}>Feedback</h1>
-            <h3 className={styles.Headingtwo}>Add your products and give us your valuable feedback</h3>
+            <h1 className={component.Headdingone}>Feedback</h1>
+            <h3 className={component.Headingtwo}>Add your products and give us your valuable feedback</h3>
 
-            <div className={styles.SignupContainer}>
+            <div className={component.SignupContainer}>
 
-                <div className={styles.ImageDivOne}>
-                    <img src="../../Images/IconU.png" alt="UIcon-Ima" className={styles.image1} />
-                    <input placeholder='Name' className={styles.Entertextone} name='name' onChange={processInput} ></input>
+                <div className={component.ImageDivOne}>
+                    <img src="../../Images/IconU.png" alt="UIcon-Ima" className={component.image1} />
+                    <input placeholder='Name' className={component.Entertextone} name='name' onChange={processInput} ></input>
                 </div>
-                {issue.name && <span className={styles.RedMessage}>{issue.name}</span>}
+                {issue.name && <span className={component.RedMessage}>{issue.name}</span>}
 
-                <div className={styles.ImageDivOne}>
-                    <img src="../../Images/IconE.png" alt="Enter your email adress" className={styles.image1} />
-                    <input placeholder='Email' className={styles.Entertextone} name='email' onChange={processInput} ></input>
+                <div className={component.ImageDivOne}>
+                    <img src="../../Images/IconE.png" alt="Enter your email adress" className={component.image1} />
+                    <input placeholder='Email' className={component.Entertextone} name='email' onChange={processInput} ></input>
                 </div>
-                {issue.email && <span className={styles.RedMessage}>{issue.email}</span>}
+                {issue.email && <span className={component.RedMessage}>{issue.email}</span>}
 
-                <div className={styles.ImageDivOne}>
-                    <img src="../../Images/Phone.png" alt="Enter your ph number" className={styles.image1} />
-                    <input type='Number' placeholder='Mobile' className={styles.Entertextone} name='mobile' onChange={processInput} ></input>
+                <div className={component.ImageDivOne}>
+                    <img src="../../Images/Phone.png" alt="Enter your ph number" className={component.image1} />
+                    <input type='Number' placeholder='Mobile' className={component.Entertextone} name='mobile' onChange={processInput} ></input>
                 </div>
-                {issue.mobile && <span className={styles.RedMessage}>{issue.mobile}</span>}
+                {issue.mobile && <span className={component.RedMessage}>{issue.mobile}</span>}
 
-                <div className={styles.ImageDivTwo}>
-                    <img src="../../Images/Lock.png" alt="Password-img" className={styles.image2} />
-                    <input type="password" placeholder='Password' className={styles.TwoEnterText} name='password' onChange={processInput} />
+                <div className={component.ImageDivTwo}>
+                    <img src="../../Images/Lock.png" alt="Password-img" className={component.image2} />
+                    <input type="password" placeholder='Password' className={component.TwoEnterText} name='password' onChange={processInput} />
                 </div>
-                {issue.password && <span className={styles.RedMessage}>{issue.password}</span>}
+                {issue.password && <span className={component.RedMessage}>{issue.password}</span>}
 
-                <span className={styles.LoginMessage}>Already have an account? <span className={styles.text3} onClick={handleLogin} >Login</span></span>
+                <span className={component.LoginMessage}>Already have an account? <span className={component.text3} onClick={handleLogin} >Login</span></span>
 
-                <div className={styles.SignupBtn}>
-                    <span className={styles.button1} onClick={attemptLogin} >Signup</span>
+                <div className={component.SignupBtn}>
+                    <span className={component.button1} onClick={attemptLogin} >Signup</span>
                 </div>
             </div>
         </div>
@@ -100,4 +100,6 @@ import 'react-toastify/dist/ReactToastify.css';
 }
 
 export default SignUpPage;
+
+
 

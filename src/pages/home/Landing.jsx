@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import FilterChip from '../../components/BoxFilter/BoxFilter'
 import Modal from '../../components/modal/View'
 import ProductBox from '../../components/product/ProductBox'
-import styles from './Landing.module.css'
+import component from './Landing.module.css'
 import { UserContext } from '../../App';
 // import userIcon from "./userIcon.png"
 import { toast } from 'react-toastify';
@@ -111,7 +111,7 @@ export default
     const handleLoginLogout = () => {
         if (activeUser) {
             setActiveUser(false);
-            toast.success('User Sucessfully Logged-out!');
+            toast.success('User Logout Sucessfully');
             localStorage.removeItem('feedbackUser');
         }
         else {
@@ -167,67 +167,67 @@ export default
 
     return (
         <>
-            <div className={styles.HomeDiv}>
-                <span className={styles.HomeHeading}>Feedback</span>
-                <div className={styles.mainDiv}>
-                    <span className={styles.navButtons} onClick={handleLoginLogout}>{activeUser ? 'Logout' : 'Login'}</span>
-                    <span className={styles.navButtons} onClick={handleSignUp}>{activeUser ? `Welcome  ` : 'Sign up'}{activeUser &&  <h5> :/ </h5> }</span>
+            <div className={component.HomeDiv}>
+                <span className={component.HomeHeading}>Feedback</span>
+                <div className={component.mainDiv}>
+                    <span className={component.navButtons} onClick={handleLoginLogout}>{activeUser ? 'Logout' : 'Login'}</span>
+                    <span className={component.navButtons} onClick={handleSignUp}>{activeUser ? `Welcome  ` : 'Sign up'}{activeUser &&  <h5> :/ </h5> }</span>
                 </div>
             </div>
-            <div className={styles.Imagetext}>
-                <div className={styles.ImageContainer}>
-                    <img src='../../Images/image1.png' className={styles.HomeImage}></img>
+            <div className={component.Imagetext}>
+                <div className={component.ImageContainer}>
+                    <img src='../../Images/image1.png' className={component.HomeImage}></img>
                 </div>
-                <div className={styles.textDiv}>
-                    <span className={styles.Addproduct}>Add your products and give your valuable feedback</span>
-                    <span className={styles.feedbackText}>Easily give your feedback in a matter of minutes. Access your audience on all platforms. Observe result manually in real time</span>
+                <div className={component.textDiv}>
+                    <span className={component.Addproduct}>Add your products and give your valuable feedback</span>
+                    <span className={component.feedbackText}>Easily give your feedback in a matter of minutes. Access your audience on all platforms. Observe result manually in real time</span>
                 </div>
             </div>
 
-            <div className={styles.formDiv}>
+            <div className={component.formDiv}>
                 {width > 600 &&
-                    <div className={styles.Filtersdiv}>
-                        <div className={styles.filtertextdiv}>
-                            <span className={styles.ApplyText}>Apply Filter</span>
-                            <span className={styles.feedbacktextbox}>Feedback</span>
+                    <div className={component.Filtersdiv}>
+                        <div className={component.filtertextdiv}>
+                            <span className={component.ApplyText}>Apply Filter</span>
+                            <span className={component.feedbacktextbox}>Feedback</span>
                         </div>
-                        <div className={styles.TagsDiv}>
+                        <div className={component.TagsDiv}>
                             {visibleTags}
                         </div>
                     </div>}
-                <div className={styles.productsDiv}>
+                <div className={component.productsDiv}>
 
-                    <div className={styles.SuggestionsDiv}>
-                        <div className={styles.SuggestiononeDiv}>
-                            <span className={styles.SuggestionsText}> {itemNumber} Suggestions</span>
+                    <div className={component.SuggestionsDiv}>
+                        <div className={component.SuggestiononeDiv}>
+                            <span className={component.SuggestionsText}> {itemNumber} Suggestions</span>
                         </div>
-                        <div className={styles.sortText}>
-                            <div className={styles.TextoneSort}>
-                                <span className={styles.Sortbytext} >Sort By: </span>
+                        <div className={component.sortText}>
+                            <div className={component.TextoneSort}>
+                                <span className={component.Sortbytext} >Sort By: </span>
                             </div>
 
-                            <div className={styles.SelectContainer}>
-                                <span className={styles.OneSelectContainer} onClick={() => handleFilter('Select')}>&nbsp;{chosenItem}</span>
-                                {optionsForDisplay && <span className={styles.TwoSelectContainer} onClick={() => handleFilter('UpVotes')}>&nbsp; Upvotes</span>}
-                                {optionsForDisplay && <span className={styles.TwoSelectContainer} onClick={() => handleFilter('Comments')}>&nbsp; Comments</span>}
+                            <div className={component.SelectContainer}>
+                                <span className={component.OneSelectContainer} onClick={() => handleFilter('Select')}>&nbsp;{chosenItem}</span>
+                                {optionsForDisplay && <span className={component.TwoSelectContainer} onClick={() => handleFilter('UpVotes')}>&nbsp; Upvotes</span>}
+                                {optionsForDisplay && <span className={component.TwoSelectContainer} onClick={() => handleFilter('Comments')}>&nbsp; Comments</span>}
 
                             </div>
                         </div>
-                        <div className={styles.Product_btn} onClick={handleAddProducts}>+ Add Products</div>
+                        <div className={component.Product_btn} onClick={handleAddProducts}>+ Add Products</div>
                     </div>
 
                     {
                         width < 600 &&
-                        <div className={styles.WholeContainer}>
-                            <div className={styles.filtertext}>Filters: </div>
-                            <div className={styles.TagsDiv}>
+                        <div className={component.WholeContainer}>
+                            <div className={component.filtertext}>Filters: </div>
+                            <div className={component.TagsDiv}>
                                 {visibleTags}
                             </div>
                         </div>
 
                     }
 
-                    <div className={styles.VisibleProductdiv}>
+                    <div className={component.VisibleProductdiv}>
                         {visibleProducts}
                     </div>
                 </div>
@@ -237,3 +237,5 @@ export default
         </>
     )
 }
+
+

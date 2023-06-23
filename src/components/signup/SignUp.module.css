@@ -7,14 +7,16 @@
 
 
 .signupMessage{
+    margin-top: 7px;
     font-family: 'Courier New', Courier, monospace;
     width: 100%;
     height: 10%;
-    padding: 0 2.5rem;
+    padding: 0 39.5px;
     font-size: 30px;
     font-weight: 600;
-
 }
+
+
 .signupContainer{
     width: 100%;
     height: 100%;
@@ -27,26 +29,27 @@
 .mainDiv, .subDiv, .buttomDiv, .buttonDiv{
     width: 90%;
     height: 50px;
-    padding: 1rem;
+    padding: 15.1px;
     display: flex;
     align-items: center;
 }
+
 .signupImages, .secondsignupImage{
-    width: 1.5rem;
-    height: 3rem;
+    width: 25px;
+    /* height: 45px; */
     object-fit: contain;
 }
 
-.entervalueOne, .entervalueTwo{
-    margin-left: 1rem;
-    width: calc(100% - 1rem);
-    border: none;
-    height: 2rem;
-    border-bottom: 1px solid hsl(0, 0%, 67%);
 
+.entervalueOne, .entervalueTwo{
+    width: calc(99% - 14px);
+    border: none;
+    height:31.5px;
+    margin-left: 14px;
+    border-bottom: 1px solid hsl(0, 0%, 67%);
     color: hsl(0, 0%, 45%);
-    font-size: 1rem;
-    padding: 0 .5rem;
+    font-size: 15.1px;
+    /* padding: 0 8px; */
 }
 .entervalueOne:focus, .entervalueTwo:focus{
     outline: none;
@@ -63,7 +66,7 @@
     color: hsl(227, 33%, 31%);
     text-decoration: underline;
     cursor: pointer;
-    margin-left: .4rem;
+    margin-left: 5px;
     font-weight: 900;
 }
 
@@ -74,39 +77,41 @@
 }
 
 .signupButton{
+    display: flex;
     background-color: hsl(227, 33%, 31%);
-    width: 5rem;
-    height: 2rem;
-    border-radius: 2rem;
+    width: 81px;
+    align-items: center;
+    height: 33px;
+    margin-bottom: 19px;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    border-radius:32px;
 }
 
 .redMessage{
-    height:7px;
-    width: calc(90% - 1rem);
-    margin-left: 6rem;
+    width: calc(91% - 16px);
+    margin-left: 91px;
     color: hsl(0, 100%, 50%);
+    height:9px;
 }
-
-
+/* 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+ */
+
 @media screen and (max-width:600px) {
     .signupContainer{
         width: 80vw;
         height: 60vh;
     }
     .signupMessage{
-        font-size: 1.4em;
-        padding: 0 1rem;
-        margin-bottom: .5rem;
+        font-size: 23px;
+        padding: 0 18px;
+        margin-bottom: 9px;
     }
 
     .buttomDiv{

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from 'react';
-import styles from './PostAdd.module.css';
+import component from './PostAdd.module.css';
 import { UserContext } from '../../App';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -69,8 +69,8 @@ export default function AddProduct(props) {
     };
 
     return (
-        <div className={styles.POSTADD}>
-            <span className={styles.HEADING}>
+        <div className={component.POSTADD}>
+            <span className={component.HEADING}>
                 {props.edit ? 'Edit your product' : 'Add your product'}
             </span>
             <input
@@ -78,7 +78,7 @@ export default function AddProduct(props) {
                 type="text"
                 placeholder="Enter name of company"
                 name="name"
-                className={styles.entervalue}
+                className={component.entervalue}
                 onChange={processInput}
             />
             <input
@@ -86,7 +86,7 @@ export default function AddProduct(props) {
                 type="text"
                 placeholder="Add Category"
                 name="category"
-                className={styles.entervalue}
+                className={component.entervalue}
                 onChange={processInput}
             />
             <input
@@ -94,7 +94,7 @@ export default function AddProduct(props) {
                 type="text"
                 placeholder="Add logo url"
                 name="logoUrl"
-                className={styles.entervalue}
+                className={component.entervalue}
                 onChange={processInput}
             />
             <input
@@ -102,7 +102,7 @@ export default function AddProduct(props) {
                 type="text"
                 placeholder="Add product link"
                 name="productLink"
-                className={styles.entervalue}
+                className={component.entervalue}
                 onChange={processInput}
             />
             <input
@@ -110,14 +110,14 @@ export default function AddProduct(props) {
                 type="text"
                 placeholder="Add description"
                 name="productDescription"
-                className={styles.entervalue}
+                className={component.entervalue}
                 onChange={processInput}
             />
-            <div className={styles.buttonContainer}>
-                <span className={styles.submitButton} onClick={diselect}>
+            <div className={component.buttonContainer}>
+                <span className={component.submitButton} onClick={diselect}>
                     Cancel
                 </span>
-                <span className={styles.submitButton} onClick={attemptLogin}>
+                <span className={component.submitButton} onClick={attemptLogin}>
                     {props.edit ? 'Edit' : '+ Add'}
                 </span>
             </div>

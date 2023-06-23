@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import styles from './SignInPage.module.css'
+import component from './SignInPage.module.css'
 import { ValidationForm } from '../../Client/Formvalidation';
 import { UserContext } from '../../App';
 import { useNavigate } from 'react-router-dom';
@@ -59,23 +59,23 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
     return (
-        <div className={styles.SignInDiv}>
-            <h1 className={styles.Heading}>Feedback</h1>
-            <h3 className={styles.SubHeading}>Add your products and give us your valuable feedback</h3>
-            <div className={styles.SigninContainer}>
-                <div className={styles.signinSubContainer}>
-                    <img src="../../Images/IconE.png" alt="email" className={styles.emailIcon} />
-                    <input  placeholder='Email' className={styles.emailInput} name='email' onChange={processInput}></input>
+        <div className={component.SignInDiv}>
+            <h1 className={component.Heading}>Feedback</h1>
+            <h3 className={component.SubHeading}>Add your products and give us your valuable feedback</h3>
+            <div className={component.SigninContainer}>
+                <div className={component.signinSubContainer}>
+                    <img src="../../Images/IconE.png" alt="email" className={component.emailIcon} />
+                    <input  placeholder='Email' className={component.emailInput} name='email' onChange={processInput}></input>
                 </div>
-                {issue.email && <span className={styles.MessageError}>{issue.email}</span>}
-                <div className={styles.mid_div}>
-                    <img src="../../Images/Lock.png" alt="password" className={styles.passwordIcon} />
-                    <input  type="password" placeholder='Password' className={styles.passwordInput} name='password' onChange={processInput} />
+                {issue.email && <span className={component.MessageError}>{issue.email}</span>}
+                <div className={component.mid_div}>
+                    <img src="../../Images/Lock.png" alt="password" className={component.passwordIcon} />
+                    <input  type="password" placeholder='Password' className={component.passwordInput} name='password' onChange={processInput} />
                 </div>
-                {issue.password && <span className={styles.MessageError}>{issue.password}</span>}
-                <span className={styles.SignInbox}>Don’t have an account? <span className={styles.SignupText} onClick={handleSignUp}>Sign up </span></span>
-                <div className={styles.btn_div}>
-                    <span className={styles.button1} onClick={attemptLogin}>Login</span>
+                {issue.password && <span className={component.MessageError}>{issue.password}</span>}
+                <span className={component.SignInbox}>Don’t have an account? <span className={component.SignupText} onClick={handleSignUp}>Sign up </span></span>
+                <div className={component.btn_div}>
+                    <span className={component.button1} onClick={attemptLogin}>Login</span>
                 </div>
             </div>
         </div>

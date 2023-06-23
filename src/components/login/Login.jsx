@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import styles from './Login.module.css'
+import component from './Login.module.css'
 import { ValidationForm } from '../../Client/Formvalidation';
 import { LoginUser } from '../../Client/api';
 // eslint-disable-next-line no-unused-vars
@@ -63,21 +63,21 @@ export default
 
     return (
        
-            <div className={styles.signinContainer}>
-            <span className={styles.signinMessage}>Log-in to continue</span>
-            <div className={styles.mainDiv}>
-                <img src="../../Images/IconE.png" alt="Enter your Email adress" className={styles.emailIcon} />
-                <input placeholder='Email' className={styles.entervalueOne} name='email' onChange={processInput}></input>
+            <div className={component.signinContainer}>
+            <span className={component.signinMessage}>Log-in to continue</span>
+            <div className={component.mainDiv}>
+                <img src="../../Images/IconE.png" alt="Enter your Email adress" className={component.emailIcon} />
+                <input placeholder='Email' className={component.entervalueOne} name='email' onChange={processInput}></input>
             </div>
-            {issue.email && <span className={styles.error}>{issue.email}</span>}
-            <div className={styles.subDiv}>
-                <img src="../../Images/Lock.png" alt="Enter your password" className={styles.passwordIcon} />
-                <input type="password" placeholder='Password' className={styles.entervalueTwo} name='password' onChange={processInput} />
+            {issue.email && <span className={component.error}>{issue.email}</span>}
+            <div className={component.subDiv}>
+                <img src="../../Images/Lock.png" alt="Enter your password" className={component.passwordIcon} />
+                <input type="password" placeholder='Password' className={component.entervalueTwo} name='password' onChange={processInput} />
             </div>
-            {issue.password && <span className={styles.error}>{issue.password}</span>}
-            <span className={styles.bottomDiv}>Don’t have an account? <span className={styles.signupMessage} onClick={handleSignUp}>Sign up </span></span>
-            <div className={styles.buttonDiv}>
-                <span className={styles.loginButton} onClick={attemptLogin}>Login</span>
+            {issue.password && <span className={component.error}>{issue.password}</span>}
+            <span className={component.bottomDiv}>Don’t have an account? <span className={component.signupMessage} onClick={handleSignUp}>Sign up </span></span>
+            <div className={component.buttonDiv}>
+                <span className={component.loginButton} onClick={attemptLogin}>Login</span>
             </div>
         </div>
       

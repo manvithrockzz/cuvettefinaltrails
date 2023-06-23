@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useContext, useEffect, useState } from 'react'
-import styles from './ProductBox.module.css'
+import component from './ProductBox.module.css'
 import { Postcomment, Upvote } from '../../Client/api';
 import { toast } from 'react-toastify';
 // eslint-disable-next-line no-unused-vars
@@ -19,13 +19,13 @@ import { UserContext } from '../../App';
     useEffect(() => {
         const isChipsShown = props.tags.map((item) => {
             return (
-                <span className={styles.chipItems}>{item}</span>
+                <span className={component.chipItems}>{item}</span>
             )
         })
 
         const isCommentsDisplayed = props.comments.map((item) => {
             return (
-                <span className={styles.comments}>{item}</span>
+                <span className={component.comments}>{item}</span>
             )
         })
 
@@ -56,7 +56,7 @@ import { UserContext } from '../../App';
         if (result.success) {
             setTotalComments(totalComments + 1);
             const newCommentsArray = commentDisplayState.map(item => item)
-            newCommentsArray.push(<span className={styles.comments}>{commentText}</span>)
+            newCommentsArray.push(<span className={component.comments}>{commentText}</span>)
             setCommentDisplayState(newCommentsArray);
         }
         else {
@@ -86,36 +86,36 @@ import { UserContext } from '../../App';
 
     return (
         <>
-            <div className={styles.ProductBoxContainer}>
-                <img src={props.logo} className={styles.HomeImage}></img>
-                <div className={styles.mainDiv}>
-                    <span className={styles.HeadingOne}>{props.name}</span>
-                    <span className={styles.HeadingTwo}> {props.description}</span>
-                    <div className={styles.productBoxDiv}>
+            <div className={component.ProductBoxContainer}>
+                <img src={props.logo} className={component.HomeImage}></img>
+                <div className={component.mainDiv}>
+                    <span className={component.HeadingOne}>{props.name}</span>
+                    <span className={component.HeadingTwo}> {props.description}</span>
+                    <div className={component.productBoxDiv}>
                         {isChipsVisible}
-                        <img src="../../Images/IconC2.png" alt="" className={styles.commentIcon} onClick={BoxtoggleComment} />
-                        <span className={styles.commentext} onClick={BoxtoggleComment}>Comment</span>
-                        {activeUser && <span className={`${styles.editbutton} `} onClick={handleEdit}>Edit</span>}
+                        <img src="../../Images/IconC2.png" alt="" className={component.commentIcon} onClick={BoxtoggleComment} />
+                        <span className={component.commentext} onClick={BoxtoggleComment}>Comment</span>
+                        {activeUser && <span className={`${component.editbutton} `} onClick={handleEdit}>Edit</span>}
                     </div>
                 </div>
-                <div className={styles.Divthree}>
-                    <div className={styles.Divthree_One} onClick={handleLikes}>
-                        <img src='../../Images/Upvote.png' className={styles.UpvoteIcon}></img>
-                        <span className={styles.NumofLikes}>{numLikes}</span>
+                <div className={component.Divthree}>
+                    <div className={component.Divthree_One} onClick={handleLikes}>
+                        <img src='../../Images/Upvote.png' className={component.UpvoteIcon}></img>
+                        <span className={component.NumofLikes}>{numLikes}</span>
                     </div>
-                    <div className={styles.Divthreetwo}>
-                        <span className={styles.NumofComments}>{totalComments}</span>
-                        <img src="../../Images/IconC1.png" alt="" className={styles.CommentIconOne} />
+                    <div className={component.Divthreetwo}>
+                        <span className={component.NumofComments}>{totalComments}</span>
+                        <img src="../../Images/IconC1.png" alt="" className={component.CommentIconOne} />
                     </div>
                 </div>
 
             </div>
-            {isBoxCommentVisible && <div className={styles.ProcutBoxContainerDiv}>
-                <div className={styles.AddCommentDiv}>
-                    <input className={styles.commentBox} placeholder='Add a comment...' onChange={handleCommentInputChange}></input>
-                    <img src="../../Images/Submit.png" alt="" className={styles.SubmitIcon} onClick={handleSubmitComment} />
+            {isBoxCommentVisible && <div className={component.ProcutBoxContainerDiv}>
+                <div className={component.AddCommentDiv}>
+                    <input className={component.commentBox} placeholder='Add a comment...' onChange={handleCommentInputChange}></input>
+                    <img src="../../Images/Submit.png" alt="" className={component.SubmitIcon} onClick={handleSubmitComment} />
                 </div>
-                <div className={styles.DivcLASS}>
+                <div className={component.DivcLASS}>
                     {commentDisplayState}
                 </div>
             </div>}
