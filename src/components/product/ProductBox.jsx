@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 // eslint-disable-next-line no-unused-vars
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
+
     function ProductBox(props) {
 
     const [isChipsVisible, setisChipsVisible] = useState();
@@ -36,52 +37,66 @@ import { UserContext } from '../../App';
         setTotalComments(props.comments_count);
     }, [])
 
-
+// Toggle the value of isBoxCommentVisible between true and false
     const BoxtoggleComment = () => {
+        // set the comment text to the value entered in the input field
         setIsBoxCommentVisible(isBoxCommentVisible ? false : true);
     }
 
+
     const handleCommentInputChange = (e) => {
+        // Toggle the value of isBoxCommentVisible between true and false
         setCommentText(() => {
+            // Set the comment text to the value entered in the input field
             return e.target.value
 
         })
     }
 
+    
     const handleSubmitComment = async () => {
         const result = await Postcomment({
-            id: props.id,
-            comment: commentText
-        })
+            id: props.id, // Pass the id as a prop to identify the associated item
+            comment: commentText // Pass the comment text from the commentText state
+        });
+    
         if (result.success) {
-            setTotalComments(totalComments + 1);
-            const newCommentsArray = commentDisplayState.map(item => item)
-            newCommentsArray.push(<span className={component.comments}>{commentText}</span>)
+            setTotalComments(totalComments + 1); // Increment the totalComments count by 1
+    
+            // Create a new array by copying the existing commentDisplayState
+            const newCommentsArray = commentDisplayState.map(item => item);
+    
+            // Add a new comment element to the newCommentsArray
+            newCommentsArray.push(<span className={component.comments}>{commentText}</span>);
+    
+            // Update the commentDisplayState with the new array of comments
             setCommentDisplayState(newCommentsArray);
-        }
-        else {
-            toast.error(result.message, { autoClose: 2000 })
+        } else {
+            toast.error(result.message, { autoClose: 2000 }); // Display an error toast message if the comment submission fails
         }
     }
+    
 
     const handleLikes = async () => {
-        const result = await Upvote(props.id);
+        const result = await Upvote(props.id); // Call the Upvote API function passing the id as a parameter
+    
         if (result.success) {
-            setNumLikes(numLikes + 1);
-        }
-        else {
-            toast.error(result.message, { autoClose: 2000 })
+            setNumLikes(numLikes + 1); // Increment the numLikes count by 1
+        } else {
+            toast.error(result.message, { autoClose: 2000 }); // Display an error toast message if the upvote fails
         }
     }
+    
 
     const handleEdit = () => {
+        // Set the active popup to 'AddProductsEdit'
         if (activeUser) {
-            setActivePopup('AddProductsEdit');
-            setIsVisible(true);
-            setEditCandidate(props);
+            setActivePopup('AddProductsEdit'); // Set the active popup to 'AddProductsEdit'
+            setIsVisible(true); // Set the visibility of the popup to true
+            setEditCandidate(props); // Set the edit candidate to the current props value
         }
-
     }
+    
 
 
     return (

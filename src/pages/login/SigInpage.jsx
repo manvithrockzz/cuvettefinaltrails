@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react'
 import component from './SignInPage.module.css'
+import { useContext, useState } from 'react'
 import { ValidationForm } from '../../Client/Formvalidation';
-import { UserContext } from '../../App';
-import { useNavigate } from 'react-router-dom';
-import {LoginUser } from '../../Client/api';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { UserContext } from '../../App';
+import {LoginUser } from '../../Client/api';
+import { useNavigate } from 'react-router-dom';
 
     function SignInPage() {
 
@@ -13,19 +13,25 @@ import 'react-toastify/dist/ReactToastify.css';
         email: '',
         password: ''
     })
-    const [issue, setIssue] = useState({});
-    const {setActiveUser} = useContext(UserContext);
-    const navigate = useNavigate();
+    
+    const [issue, setIssue] = useState({}); // Initialize the state for issue with an empty object
+    
+    const { setActiveUser } = useContext(UserContext); // Retrieve the setActiveUser function from the UserContext
+    const navigate = useNavigate(); // Get the navigate function from the react-router-dom
+    
+    // State initialization and context retrieval
+    
 
 
     const processInput = (e) => {
-        setClientInfo((prevDetails) => {
+        setClientInfo((prevDetails) => { // Update the client information using the previous details
             return {
-                ...prevDetails,
-                [e.target.name]: e.target.value
+                ...prevDetails, // Copy the previous details
+                [e.target.name]: e.target.value // Update the specific field with the new value
             }
         })
     }
+    
 
 
     const attemptLogin = async() => {

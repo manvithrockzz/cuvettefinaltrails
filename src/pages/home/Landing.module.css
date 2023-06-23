@@ -248,7 +248,7 @@
 
 .Sortbytext {
     color: hsl(0, 0%, 55%);
-    font-size:15px;
+    font-size:14px;
     font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -348,7 +348,7 @@
     .Sortbytext{
         margin: 0;
         padding: 0;
-        font-size: 11px;
+        font-size: 13.1px;
     }
     .TextoneSort{
         padding: 0;

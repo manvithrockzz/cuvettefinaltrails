@@ -17,54 +17,74 @@ export default function AddProduct(props) {
     });
 
     const { setIsVisible, editCandidate, setModifyStatus, setSortUpdateState } = useContext(UserContext);
+    // use navigate is a useState, used to navigate betwwen pages
     const navigate = useNavigate();
 
     useEffect(() => {
+        // if post is edited then, : code loop runs
         if (props.edit) {
+            // When editing, pre-fill the input fields with the editCandidate's details
             const categoryItems = editCandidate.tags.join(', ');
 
+            // setPostDetails({
+            //     name: editCandidate.name,
+            //     category: categoryItems,
+            //     logoUrl: editCandidate.logo,
+            //     productLink: editCandidate.logo,
+            //     productDescription: editCandidate.description
+            // });
+
             setPostDetails({
-                name: editCandidate.name,
-                category: categoryItems,
-                logoUrl: editCandidate.logo,
-                productLink: editCandidate.logo,
-                productDescription: editCandidate.description
+                // Set the input field values based on the editCandidate's details
+                name: editCandidate.name, // Set the name field to editCandidate's name
+                category: categoryItems, // Set the category field to a string representation of editCandidate's tags
+                logoUrl: editCandidate.logo, // Set the logoUrl field to editCandidate's logo
+                productLink: editCandidate.logo, // Set the productLink field to editCandidate's logo
+                productDescription: editCandidate.description // Set the productDescription field to editCandidate's description
             });
+            
         }
     }, []);
 
     const processInput = (e) => {
         setPostDetails((prevDetails) => ({
-            ...prevDetails,
-            [e.target.name]: e.target.value
+            ...prevDetails, // Spread operator to create a copy of the previous postDetails state
+            [e.target.name]: e.target.value // Update the property corresponding to the changed input field
         }));
     };
+    
 
     const attemptLogin = async () => {
         const { name, category, logoUrl, productDescription, productLink } = postDetails;
         if (!name || !category || !logoUrl || !productDescription || !productLink) {
+            // Display an error toast if any of the required fields are empty
             toast.error('Please ensure all fields are added', { autoclose: 3000 });
         } else {
             let result = '';
             if (props.edit) {
+                // If editing, call the editPost API function
                 result = await editPost(postDetails, editCandidate.id);
             } else {
+                // If not editing, call the addProduct API function
                 result = await addProduct(postDetails);
             }
 
             if (result.success) {
-                toast.success(result.message, { autoclose: 3000 });
+                // Display a success toast if the operation is successful
+                toast.success(result.message, { autoclose: 2000 });
                 setIsVisible(false);
                 navigate('/');
                 setModifyStatus(true);
                 setSortUpdateState(true);
             } else {
-                toast.error(result.message, { autoclose: 3000 });
+                // Display an error toast if the operation fails
+                toast.error(result.message, { autoclose: 2000 });
             }
         }
     };
 
     const diselect = () => {
+        // Close the modal without saving changes
         setIsVisible(false);
     };
 
@@ -81,6 +101,7 @@ export default function AddProduct(props) {
                 className={component.entervalue}
                 onChange={processInput}
             />
+            {/* add input category */}
             <input
                 value={postDetails.category}
                 type="text"
@@ -89,6 +110,7 @@ export default function AddProduct(props) {
                 className={component.entervalue}
                 onChange={processInput}
             />
+            {/* add input, put logo URL */}
             <input
                 value={postDetails.logoUrl}
                 type="text"
@@ -97,6 +119,7 @@ export default function AddProduct(props) {
                 className={component.entervalue}
                 onChange={processInput}
             />
+            {/* add input for product link */}
             <input
                 value={postDetails.productLink}
                 type="text"
@@ -105,6 +128,7 @@ export default function AddProduct(props) {
                 className={component.entervalue}
                 onChange={processInput}
             />
+            {/* add and edit  product description */}
             <input
                 value={postDetails.productDescription}
                 type="text"
@@ -124,4 +148,3 @@ export default function AddProduct(props) {
         </div>
     );
 }
-

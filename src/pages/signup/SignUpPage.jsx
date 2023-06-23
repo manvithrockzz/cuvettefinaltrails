@@ -1,41 +1,52 @@
-import { useState } from 'react';
-import component from './SignUpPage.module.css'
-import { ValidationForm} from '../../Client/Formvalidation';
 import { useNavigate } from 'react-router-dom';
+import { ValidationForm} from '../../Client/Formvalidation';
+import component from './SignUpPage.module.css'
 import { getsucessfullRegisteredUser } from '../../Client/api';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 
 
     function SignUpPage() {
 
     const [clientInfo, setClientInfo] = useState({
-        name: '',
-        email: '',
-        mobile: '',
-        password: ''
-    })
-    const [issue, setIssue] = useState({});
-    const navigate = useNavigate();
+        name: '', // Initialize name with an empty string
+        email: '', // Initialize email with an empty string
+        mobile: '', // Initialize mobile with an empty string
+        password: '' // Initialize password with an empty string
+    });
+    
+    const [issue, setIssue] = useState({}); // Initialize issue with an empty object
+    
+    const navigate = useNavigate(); // Get the navigate function from the useNavigate hook
+    
 
 
     const processInput = (e) => {
         setClientInfo((prevDetails) => {
+            // Use the setClientInfo function provided by useState to update the clientInfo state
+            // The update is performed by passing a callback function that receives the previous details as an argument
+    
             return {
-                ...prevDetails,
-                [e.target.name]: e.target.value
+                ...prevDetails, // Spread operator is used to create a new object with the previous details
+                [e.target.name]: e.target.value // Update the specific input field's value using computed property names
             }
         })
     }
-
+    
 
     const attemptLogin = async () => {
+
         const userToBeValidated = {
-            name: clientInfo.name,
-            email: clientInfo.email,
-            mobile: clientInfo.mobile,
-            password: clientInfo.password
+            name: clientInfo.name, // Get the name from the clientInfo state
+            email: clientInfo.email, // Get the email from the clientInfo state
+            mobile: clientInfo.mobile, // Get the mobile number from the clientInfo state
+            password: clientInfo.password // Get the password from the clientInfo state
         }
+        
+
+        
+
         const result = ValidationForm(userToBeValidated);
         if (result.success) {
             const userRegistration = await getsucessfullRegisteredUser(userToBeValidated);

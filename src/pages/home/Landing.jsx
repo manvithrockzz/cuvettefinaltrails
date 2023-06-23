@@ -1,15 +1,16 @@
-import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom"
-import FilterChip from '../../components/BoxFilter/BoxFilter'
-import Modal from '../../components/modal/View'
+import useResponsiveScreen from '../../reactHelper/handleListner';
 import ProductBox from '../../components/product/ProductBox'
+import FilterChip from '../../components/BoxFilter/BoxFilter'
 import component from './Landing.module.css'
 import { UserContext } from '../../App';
 // import userIcon from "./userIcon.png"
 import { toast } from 'react-toastify';
+import Modal from '../../components/modal/View'
 import 'react-toastify/dist/ReactToastify.css';
+import { useContext, useEffect, useState } from 'react';
 import { ApplyFilter, getAllProducts } from '../../Client/api';
-import useResponsiveScreen from '../../reactHelper/handleListner';
+
     function LandingPage() {
     const navigate = useNavigate();
 
@@ -25,18 +26,20 @@ import useResponsiveScreen from '../../reactHelper/handleListner';
         setOptionsForDisplay(false);
     }, [])
     const getProductsAndDisplay = async () => {
+
         let query = '';
-        if (sortBy && sortBy !== 'Select') {
-            query += 'sort='
-            query += sortBy;
-        }
-        if (activeSort && activeSort !== 'All') {
-            if (query) {
-                query += '&';
-            }
-            query += 'product_category='
-            query += activeSort;
-        }
+    if (sortBy && sortBy !== 'Select') {
+    query += 'sort='; // Build the query string for sorting
+    query += sortBy;
+    }
+    if (activeSort && activeSort !== 'All') {
+    if (query) {
+        query += '&'; // Append '&' if there is already a 'sort' parameter in the query
+    }
+    query += 'product_category='; // Build the query string for filtering by product category
+    query += activeSort;
+}
+
         const result = await getAllProducts(query);
         if (result.success) {
             const tempDisplay = result.data.map((item) => {
@@ -107,26 +110,27 @@ import useResponsiveScreen from '../../reactHelper/handleListner';
         }
     }, [sortUpdateState])
 
+
     const handleLoginLogout = () => {
         if (activeUser) {
-            setActiveUser(false);
-            toast.success('User Logout Sucessfully');
-            localStorage.removeItem('feedbackUser');
-        }
-        else {
-            navigate('login');
+            setActiveUser(false); // Set the activeUser state to false, indicating user logout
+            toast.success('User Logout Successfully!'); // Display a success toast message indicating successful logout
+            localStorage.removeItem('feedbackUser'); // Remove the 'feedbackUser' item from localStorage
+        } else {
+            navigate('login'); // Navigate to the 'login' page
         }
     }
+    
 
     const handleAddProducts = () => {
         if (activeUser) {
-            setActivePopup('AddProducts');
+            setActivePopup('AddProducts'); // Set the active popup to 'AddProducts'
+        } else {
+            setActivePopup('LogIn'); // Set the active popup to 'LogIn'
         }
-        else {
-            setActivePopup('LogIn');
-        }
-        setIsVisible(true);
+        setIsVisible(true); // Set the visibility of the popup to true
     }
+    
 
     const handleFilter = (filter) => {
         setOptionsForDisplay(optionsForDisplay ? false : true)
@@ -170,7 +174,7 @@ import useResponsiveScreen from '../../reactHelper/handleListner';
                 <span className={component.HomeHeading}>Feedback</span>
                 <div className={component.mainDiv}>
                     <span className={component.navButtons} onClick={handleLoginLogout}>{activeUser ? 'Logout' : 'Login'}</span>
-                    <span className={component.navButtons} onClick={handleSignUp}>{activeUser ? `Welcome  ` : 'Sign up'}{activeUser &&  <h5> :/ </h5> }</span>
+                    <span className={component.navButtons} onClick={handleSignUp}>{activeUser ? `Welcome  ` : 'Sign up'}{activeUser &&  <h2> :/ </h2> }</span>
                 </div>
             </div>
             <div className={component.Imagetext}>
@@ -239,3 +243,4 @@ import useResponsiveScreen from '../../reactHelper/handleListner';
 
 
 export default LandingPage;
+
